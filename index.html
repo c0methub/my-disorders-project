@@ -14,70 +14,201 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="#top" aria-label="Celiac, Clearly home"><img class="brand-mark profile-photo" src="https://raw.githubusercontent.com/c0methub/website-assets/main/Screenshot_20261027_123721_Snapchat.jpg" alt="Mo. Dewan"><span>Celiac, Clearly<small>A student guide by Mo. Dewan</small></span></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
-      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
-        <a href="#about">The basics</a><a href="#symptoms">Symptoms</a><a href="#diagnosis">Diagnosis</a><a href="#treatment">Living with it</a>
-      </nav>
+
+  <section class="intro" id="intro" aria-label="Welcome">
+    <div class="intro-box">
+      <div class="prank" id="prank"><h1>YOU GOT HACKED :)</h1></div>
+      <div class="stage" id="question" hidden>
+        <p>Sorry, just kidding!!! This is only a playful intro—nothing was accessed or changed.</p>
+        <h2>ARE YOU MISS HALSTED!?!</h2>
+        <p>Choose an option to continue to Mo’s school project.</p>
+        <div class="choices">
+          <button class="choice yes" id="yes" type="button">Yes!</button>
+          <button class="choice" id="no" type="button">No</button>
+        </div>
+      </div>
+
+      <div class="stage" id="profile" hidden>
+        <div class="avatar" id="avatar"><img src="https://raw.githubusercontent.com/c0methub/website-assets/main/Screenshot_20261027_123721_Snapchat.jpg" alt="Mo. Dewan profile"></div>
+        <h2>Mo. Dewan</h2>
+        <p>Student · sharing a project about celiac disease</p>
+        <label class="photo-label">Add a profile photo<input type="file" id="photo" accept="image/*"></label>
+        <button class="continue" id="continue" type="button">Continue to the project →</button>
+      </div>
+
+      <div class="stage" id="visitor" hidden>
+        <h2>No worries!</h2>
+        <p>This project is open to everyone. Have a look around.</p>
+        <button class="continue" id="enter" type="button">See the project →</button>
+      </div>
     </div>
-  </header>
-  <main id="main">
-    <section class="hero wrap" id="top">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-dot"></span> Health, explained with care</p>
-        <h1>Gluten is the clue.<br><em>Understanding is the start.</em></h1>
-        <p class="lede">Celiac disease can be confusing, especially when symptoms don’t look the same for everyone. Here’s a clear, friendly guide to what it is, how it’s diagnosed, and what treatment really means.</p>
-        <a class="button" href="#about">Let’s start <span aria-hidden="true">↓</span></a>
-        <p class="hero-note">A student project made to make health information easier to understand.</p>
+  </section>
+
+  <div class="site" id="site" hidden>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Celiac, Clearly home"><img class="brand-mark profile-photo" src="https://raw.githubusercontent.com/c0methub/website-assets/main/Screenshot_20261027_123721_Snapchat.jpg" alt="Mo. Dewan profile"><span>Celiac, Clearly<small>A student guide by Mo. Dewan</small></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+          <a href="#about">The basics</a><a href="#symptoms">Symptoms</a><a href="#diagnosis">Diagnosis</a><a href="#treatment">Living with it</a>
+        </nav>
       </div>
-      <div class="hero-visual" aria-label="Illustration about gluten and celiac disease">
-        <div class="sunburst"></div><div class="hero-photo"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1100&q=85" alt="Freshly baked bread on a table"><span class="photo-tag">Wheat contains gluten</span></div>
-        <div class="floating-note"><span class="note-icon">✳</span><span>One condition.<br><strong>Many experiences.</strong></span></div>
-        <span class="scribble" aria-hidden="true">a closer look</span>
-      </div>
-    </section>
+    </header>
 
-    <aside class="important wrap"><span class="important-icon" aria-hidden="true">!</span><p><strong>Thinking about getting tested?</strong> Keep eating gluten unless a healthcare professional tells you otherwise. Going gluten-free before testing can make results less reliable.</p></aside>
+    <main id="main">
+      <section class="hero wrap" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Health, explained with care</p>
+          <h1>Gluten is the clue.<br><em>Understanding is the start.</em></h1>
+          <p class="lede">Celiac disease can be confusing, especially when symptoms don’t look the same for everyone. Here’s a clear, friendly guide to what it is, how it’s diagnosed, and what treatment really means.</p>
+          <a class="button" href="#about">Let’s start <span aria-hidden="true">↓</span></a>
+          <p class="hero-note">A student project made to make health information easier to understand.</p>
+        </div>
+        <div class="hero-visual" aria-label="Illustration about gluten and celiac disease">
+          <div class="sunburst"></div><div class="hero-photo"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1100&q=85" alt="Freshly baked bread on a table"><span class="photo-tag">Wheat contains gluten</span></div>
+          <div class="floating-note"><span class="note-icon">✳</span><span>One condition.<br><strong>Many experiences.</strong></span></div>
+          <span class="scribble" aria-hidden="true">a closer look</span>
+        </div>
+      </section>
 
-    <section class="section wrap" id="about">
-      <div class="section-intro"><p class="kicker">01 / THE BASICS</p><h2>First things first:<br><em>what is celiac disease?</em></h2></div>
-      <div class="two-column"><div class="body-copy"><p>Celiac disease is a long-term autoimmune condition. When someone with celiac disease eats <strong>gluten</strong>—a protein in wheat, barley, and rye—their immune system reacts and can damage the lining of the small intestine.</p><p>That damage can make it harder for the body to absorb nutrients. Celiac disease isn’t a food preference, and it’s not the same as a wheat allergy or non-celiac gluten sensitivity.</p><p class="soft-note"><strong>In plain English:</strong> gluten triggers an immune response that can hurt the gut. A clinician can help figure out whether celiac disease is behind someone’s symptoms.</p></div><div class="fact-card"><span class="fact-icon">↗</span><p class="fact-label">A quick definition</p><h3>It’s about the immune system—not willpower.</h3><p>Having certain genes can raise the chance of celiac disease, but genes alone don’t tell the whole story.</p></div></div>
-    </section>
+      <aside class="important wrap"><span class="important-icon" aria-hidden="true">!</span><p><strong>Thinking about getting tested?</strong> Keep eating gluten unless a healthcare professional tells you otherwise. Going gluten-free before testing can make results less reliable.</p></aside>
 
-    <section class="section section-color" id="symptoms">
-      <div class="wrap"><div class="section-intro centered"><p class="kicker">02 / WHAT IT CAN FEEL LIKE</p><h2>No single symptom tells<br><em>the whole story.</em></h2><p>Some people notice gut problems. Others feel tired or have symptoms that seem unrelated. Some people don’t notice clear symptoms at all.</p></div>
-        <div class="symptom-grid"><article class="symptom-card"><span>01</span><h3>Digestive changes</h3><p>Bloating, gas, stomach pain, diarrhea, constipation, nausea, or vomiting.</p></article><article class="symptom-card"><span>02</span><h3>Energy &amp; nutrition</h3><p>Fatigue, iron-deficiency anemia, or unintended weight changes.</p></article><article class="symptom-card"><span>03</span><h3>Other signs</h3><p>Itchy skin rash, bone or joint problems, or growth concerns in children.</p></article></div>
-        <p class="symptom-footnote">Symptoms can overlap with other conditions, so this list can’t diagnose celiac disease. If something concerns you, talk to a healthcare professional.</p>
-      </div>
-    </section>
+      <section class="section wrap" id="about">
+        <div class="section-intro"><p class="kicker">01 / THE BASICS</p><h2>First things first:<br><em>what is celiac disease?</em></h2></div>
+        <div class="two-column"><div class="body-copy"><p>Celiac disease is a long-term autoimmune condition. When someone with celiac disease eats <strong>gluten</strong>—a protein in wheat, barley, and rye—their immune system reacts and can damage the lining of the small intestine.</p><p>That damage can make it harder for the body to absorb nutrients. Celiac disease isn’t a food preference, and it’s not the same as a wheat allergy or non-celiac gluten sensitivity.</p><p class="soft-note"><strong>In plain English:</strong> gluten triggers an immune response that can hurt the gut. A clinician can help figure out whether celiac disease is behind someone’s symptoms.</p></div><div class="fact-card"><span class="fact-icon">↗</span><p class="fact-label">A quick definition</p><h3>It’s about the immune system—not willpower.</h3><p>Having certain genes can raise the chance of celiac disease, but genes alone don’t tell the whole story.</p></div></div>
+      </section>
 
-    <section class="section wrap" id="causes">
-      <div class="section-intro"><p class="kicker">03 / WHY IT HAPPENS</p><h2>Gluten is the trigger.<br><em>Biology matters too.</em></h2></div>
-      <div class="two-column align-center"><div class="grain-art" aria-label="Wheat, barley, and rye contain gluten"><div class="grain grain-wheat">🌾<span>Wheat</span></div><div class="grain grain-barley">🌾<span>Barley</span></div><div class="grain grain-rye">🌾<span>Rye</span></div></div><div class="body-copy"><p>Celiac disease is linked to certain genes and an immune response to gluten. It isn’t contagious, and carrying the genes doesn’t mean a person will definitely develop the condition.</p><p>Oats are naturally gluten-free, but they can pick up gluten during growing or processing. A clinician or dietitian can help explain what’s safe for an individual.</p></div></div>
-    </section>
+      <section class="section section-color" id="symptoms">
+        <div class="wrap"><div class="section-intro centered"><p class="kicker">02 / WHAT IT CAN FEEL LIKE</p><h2>No single symptom tells<br><em>the whole story.</em></h2><p>Some people notice gut problems. Others feel tired or have symptoms that seem unrelated. Some people don’t notice clear symptoms at all.</p></div>
+          <div class="symptom-grid"><article class="symptom-card"><span>01</span><h3>Digestive changes</h3><p>Bloating, gas, stomach pain, diarrhea, constipation, nausea, or vomiting.</p></article><article class="symptom-card"><span>02</span><h3>Energy &amp; nutrition</h3><p>Fatigue, iron-deficiency anemia, or unintended weight changes.</p></article><article class="symptom-card"><span>03</span><h3>Other signs</h3><p>Itchy skin rash, bone or joint problems, or growth concerns in children.</p></article></div>
+          <p class="symptom-footnote">Symptoms can overlap with other conditions, so this list can’t diagnose celiac disease. If something concerns you, talk to a healthcare professional.</p>
+        </div>
+      </section>
 
-    <section class="section section-paper" id="diagnosis">
-      <div class="wrap"><div class="section-intro centered"><p class="kicker">04 / FINDING OUT</p><h2>Answers start with<br><em>the right tests.</em></h2><p>A healthcare professional considers symptoms and medical history, then recommends appropriate testing.</p></div>
-        <div class="steps"><article class="step-card"><span class="step-number">01</span><h3>Blood tests</h3><p>Testing often starts with celiac antibodies, including tTG-IgA and total IgA.</p></article><article class="step-card"><span class="step-number">02</span><h3>Sometimes, a biopsy</h3><p>An upper endoscopy may collect small-intestine samples for examination.</p></article><article class="step-card"><span class="step-number">03</span><h3>Results in context</h3><p>A clinician looks at test results alongside symptoms and health history.</p></article></div>
-        <p class="test-reminder"><strong>Before your appointment:</strong> don’t remove gluten from your diet unless your clinician advises you to. If you already have, let them know.</p>
-      </div>
-    </section>
+      <section class="section wrap" id="causes">
+        <div class="section-intro"><p class="kicker">03 / WHY IT HAPPENS</p><h2>Gluten is the trigger.<br><em>Biology matters too.</em></h2></div>
+        <div class="two-column align-center"><div class="grain-art" aria-label="Wheat, barley, and rye contain gluten"><div class="grain grain-wheat">🌾<span>Wheat</span></div><div class="grain grain-barley">🌾<span>Barley</span></div><div class="grain grain-rye">🌾<span>Rye</span></div></div><div class="body-copy"><p>Celiac disease is linked to certain genes and an immune response to gluten. It isn’t contagious, and carrying the genes doesn’t mean a person will definitely develop the condition.</p><p>Oats are naturally gluten-free, but they can pick up gluten during growing or processing. A clinician or dietitian can help explain what’s safe for an individual.</p></div></div>
+      </section>
 
-    <section class="section wrap" id="treatment">
-      <div class="section-intro"><p class="kicker">05 / TREATMENT &amp; EVERYDAY LIFE</p><h2>With the right support,<br><em>life gets more manageable.</em></h2><p>The established treatment is a lifelong gluten-free diet. Support from a healthcare professional or dietitian can make the changes easier to navigate.</p></div>
-      <div class="life-grid"><article class="life-card"><span class="life-icon">01</span><h3>Learn what to look for</h3><p>Check ingredient labels and ask questions when buying food or eating out.</p></article><article class="life-card"><span class="life-icon">02</span><h3>Watch for cross-contact</h3><p>Crumbs and shared kitchen tools can matter. Small routines can help reduce accidental exposure.</p></article><article class="life-card"><span class="life-icon">03</span><h3>Keep up with care</h3><p>Follow-up appointments can help monitor symptoms, nutrition, and healing over time.</p></article></div>
-      <div class="kind-reminder"><span aria-hidden="true">♡</span><p><strong>There’s no need to figure it all out alone.</strong> A dietitian and healthcare team can help make a gluten-free plan that works for your health and daily life.</p></div>
-    </section>
+      <section class="section section-paper" id="diagnosis">
+        <div class="wrap"><div class="section-intro centered"><p class="kicker">04 / FINDING OUT</p><h2>Answers start with<br><em>the right tests.</em></h2><p>A healthcare professional considers symptoms and medical history, then recommends appropriate testing.</p></div>
+          <div class="steps"><article class="step-card"><span class="step-number">01</span><h3>Blood tests</h3><p>Testing often starts with celiac antibodies, including tTG-IgA and total IgA.</p></article><article class="step-card"><span class="step-number">02</span><h3>Sometimes, a biopsy</h3><p>An upper endoscopy may collect small-intestine samples for examination.</p></article><article class="step-card"><span class="step-number">03</span><h3>Results in context</h3><p>A clinician looks at test results alongside symptoms and health history.</p></article></div>
+          <p class="test-reminder"><strong>Before your appointment:</strong> don’t remove gluten from your diet unless your clinician advises you to. If you already have, let them know.</p>
+        </div>
+      </section>
 
-    <section class="section section-color sources" id="sources">
-      <div class="wrap"><div class="section-intro"><p class="kicker">KEEP LEARNING</p><h2>Good information<br><em>is worth sharing.</em></h2><p>This page is a starting point, not personal medical advice. These trusted sources can help you explore further.</p></div>
-        <div class="source-grid"><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease" target="_blank" rel="noopener noreferrer"><span>National Institute of Diabetes and Digestive and Kidney Diseases</span><strong>Celiac Disease ↗</strong></a><a href="https://celiac.org/about-celiac-disease/what-is-celiac-disease/" target="_blank" rel="noopener noreferrer"><span>Celiac Disease Foundation</span><strong>What is Celiac Disease? ↗</strong></a><a href="https://www.nhs.uk/conditions/coeliac-disease/" target="_blank" rel="noopener noreferrer"><span>National Health Service</span><strong>Coeliac disease ↗</strong></a></div>
-        <p class="medical-note">If you’re concerned about symptoms, speak with a qualified healthcare professional—especially before changing your diet.</p>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer"><div class="wrap footer-inner"><a class="brand footer-brand" href="#top"><img class="brand-mark profile-photo" src="https://raw.githubusercontent.com/c0methub/website-assets/main/Screenshot_20261027_123721_Snapchat.jpg" alt="Mo. Dewan"><span>Celiac, Clearly<small>A student project by Mo. Dewan</small></span></a><p>Learn with curiosity. Lead with kindness.</p><a class="back-top" href="#top">Back to the top ↑</a></div></footer>
+      <section class="section wrap" id="treatment">
+        <div class="section-intro"><p class="kicker">05 / TREATMENT &amp; EVERYDAY LIFE</p><h2>With the right support,<br><em>life gets more manageable.</em></h2><p>The established treatment is a lifelong gluten-free diet. Support from a healthcare professional or dietitian can make the changes easier to navigate.</p></div>
+        <div class="life-grid"><article class="life-card"><span class="life-icon">01</span><h3>Learn what to look for</h3><p>Check ingredient labels and ask questions when buying food or eating out.</p></article><article class="life-card"><span class="life-icon">02</span><h3>Watch for cross-contact</h3><p>Crumbs and shared kitchen tools can matter. Small routines can help reduce accidental exposure.</p></article><article class="life-card"><span class="life-icon">03</span><h3>Keep up with care</h3><p>Follow-up appointments can help monitor symptoms, nutrition, and healing over time.</p></article></div>
+        <div class="kind-reminder"><span aria-hidden="true">♡</span><p><strong>There’s no need to figure it all out alone.</strong> A dietitian and healthcare team can help make a gluten-free plan that works for your health and daily life.</p></div>
+      </section>
+
+      <section class="section section-color sources" id="sources">
+        <div class="wrap"><div class="section-intro"><p class="kicker">KEEP LEARNING</p><h2>Good information<br><em>is worth sharing.</em></h2><p>This page is a starting point, not personal medical advice. These trusted sources can help you explore further.</p></div>
+          <div class="source-grid"><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease" target="_blank" rel="noopener noreferrer"><span>National Institute of Diabetes and Digestive and Kidney Diseases</span><strong>Celiac Disease ↗</strong></a><a href="https://celiac.org/about-celiac-disease/what-is-celiac-disease/" target="_blank" rel="noopener noreferrer"><span>Celiac Disease Foundation</span><strong>What is Celiac Disease? ↗</strong></a><a href="https://www.nhs.uk/conditions/coeliac-disease/" target="_blank" rel="noopener noreferrer"><span>National Health Service</span><strong>Coeliac disease ↗</strong></a></div>
+          <p class="medical-note">If you’re concerned about symptoms, speak with a qualified healthcare professional—especially before changing your diet.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="wrap footer-inner"><a class="brand footer-brand" href="#top"><img class="brand-mark profile-photo" src="https://raw.githubusercontent.com/c0methub/website-assets/main/Screenshot_20261027_123721_Snapchat.jpg" alt="Mo. Dewan profile"><span>Celiac, Clearly<small>A student project by Mo. Dewan</small></span></a><p>Learn with curiosity. Lead with kindness.</p><a class="back-top" href="#top">Back to the top ↑</a></div></footer>
+  </div>
+
+  <script>
+    const intro = document.getElementById('intro');
+    const prank = document.getElementById('prank');
+    const question = document.getElementById('question');
+    const profile = document.getElementById('profile');
+    const visitor = document.getElementById('visitor');
+    const site = document.getElementById('site');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    document.body.style.overflow = 'hidden';
+
+    function ask() {
+      prank.hidden = true;
+      question.hidden = false;
+      question.classList.add('show');
+    }
+
+    function enter() {
+      intro.classList.add('done');
+      site.hidden = false;
+      requestAnimationFrame(() => site.classList.add('visible'));
+      document.body.style.overflow = '';
+    }
+
+    window.setTimeout(ask, reduced.matches ? 900 : 1400);
+
+    document.getElementById('yes').addEventListener('click', () => {
+      question.hidden = true;
+      profile.hidden = false;
+      profile.classList.add('show');
+    });
+
+    document.getElementById('no').addEventListener('click', () => {
+      question.hidden = true;
+      visitor.hidden = false;
+      visitor.classList.add('show');
+    });
+
+    document.getElementById('continue').addEventListener('click', enter);
+    document.getElementById('enter').addEventListener('click', enter);
+
+    document.getElementById('photo').addEventListener('change', (event) => {
+      const file = event.target.files && event.target.files[0];
+      if (!file || !file.type.startsWith('image/')) return;
+      const img = document.createElement('img');
+      img.alt = 'Selected profile photo';
+      img.src = URL.createObjectURL(file);
+      const avatar = document.getElementById('avatar');
+      avatar.replaceChildren(img);
+      const headerPhotos = document.querySelectorAll('.profile-photo');
+      headerPhotos.forEach((node) => {
+        node.src = img.src;
+      });
+    });
+
+    const menuButton = document.querySelector('.nav-toggle');
+    const navigation = document.querySelector('.nav-links');
+
+    if (menuButton && navigation) {
+      menuButton.addEventListener('click', () => {
+        const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!isOpen));
+        menuButton.textContent = isOpen ? 'Menu' : 'Close';
+        menuButton.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
+        navigation.classList.toggle('open', !isOpen);
+      });
+
+      navigation.addEventListener('click', (event) => {
+        if (!event.target.closest('a')) return;
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation');
+        menuButton.textContent = 'Menu';
+        navigation.classList.remove('open');
+      });
+    }
+
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    if ('IntersectionObserver' in window && sections.length && navLinks.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach((link) => {
+            if (link.getAttribute('href') === `#${entry.target.id}`) {
+              link.setAttribute('aria-current', 'location');
+            } else {
+              link.removeAttribute('aria-current');
+            }
+          });
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+
+      sections.forEach((section) => observer.observe(section));
+    }
+  </script>
 </body>
 </html>
