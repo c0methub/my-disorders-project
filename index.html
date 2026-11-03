@@ -4,49 +4,181 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17142b">
-  <meta name="description" content="My Disorders Project — a space for learning, sharing, and understanding.">
-  <title>My Disorders Project</title>
+  <meta name="description" content="An interactive 3D cover and a friendly step-by-step tutorial on how it was made.">
+  <title>My Disorders Project — 3D Cover Tutorial</title>
   <style>
-    :root { color-scheme: dark; --ink: #fffaf3; --muted: #d3cee4; --lilac: #c4a8ff; --mint: #9de8d0; }
+    :root { color-scheme: dark; --ink: #fffaf3; --muted: #d3cee4; --lilac: #c4a8ff; --mint: #9de8d0; --night: #17142b; }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; overflow: hidden; padding: 1.5rem; background: #17142b; color: var(--ink); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    .cover { isolation: isolate; position: relative; display: grid; place-items: center; width: min(100%, 980px); min-height: min(690px, calc(100svh - 3rem)); overflow: hidden; padding: clamp(2rem, 8vw, 6rem); border: 1px solid #ffffff24; border-radius: 30px; background: linear-gradient(145deg, #292044 0%, #211b3c 48%, #173b43 100%); box-shadow: 0 35px 100px #05040e99; text-align: center; }
-    .cover::before, .cover::after { position: absolute; z-index: -1; content: ""; width: 430px; aspect-ratio: 1; border-radius: 50%; filter: blur(1px); opacity: .7; }
-    .cover::before { top: -240px; left: -150px; background: radial-gradient(circle, #9b75e477 0, #9b75e400 70%); animation: drift 12s ease-in-out infinite alternate; }
-    .cover::after { right: -190px; bottom: -270px; background: radial-gradient(circle, #62d4bb66 0, #62d4bb00 70%); animation: drift 15s ease-in-out infinite alternate-reverse; }
-    .sparkles { position: absolute; inset: 0; z-index: -1; background-image: radial-gradient(2px 2px at 12% 25%, #fff8 50%, transparent 100%), radial-gradient(2px 2px at 82% 18%, #d7c8ffb3 50%, transparent 100%), radial-gradient(1.5px 1.5px at 74% 73%, #fff9 50%, transparent 100%), radial-gradient(2px 2px at 20% 82%, #9de8d0b3 50%, transparent 100%), radial-gradient(1px 1px at 57% 13%, #fff9 50%, transparent 100%); }
-    .content { width: min(100%, 680px); animation: rise-in 1s cubic-bezier(.2,.8,.2,1) both; }
-    .emblem { display: grid; place-items: center; width: 88px; height: 88px; margin: 0 auto 2rem; border: 1px solid #ffffff3b; border-radius: 28px; background: #ffffff10; box-shadow: 0 12px 45px #0e0a2670, inset 0 1px #ffffff30; color: var(--mint); font-size: 2.5rem; animation: float 4s ease-in-out infinite; }
-    .eyebrow { margin: 0 0 1rem; color: var(--mint); font-size: .76rem; font-weight: 750; letter-spacing: .22em; text-transform: uppercase; }
-    h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.8rem, 8vw, 6.2rem); font-weight: 500; line-height: .98; letter-spacing: -.055em; text-wrap: balance; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--night); color: var(--ink); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .hero { min-height: 100svh; display: grid; place-items: center; overflow: hidden; padding: 2rem 1.25rem 4rem; background: radial-gradient(ellipse at 50% 0, #392d59 0, transparent 54%), var(--night); }
+    .hero-inner { width: min(100%, 980px); text-align: center; }
+    .topline { margin: 0 0 1.75rem; color: var(--mint); font-size: .75rem; font-weight: 750; letter-spacing: .2em; text-transform: uppercase; }
+    .scene { perspective: 1100px; perspective-origin: 50% 45%; width: min(100%, 740px); margin: 0 auto; }
+    .cover { --rx: 0deg; --ry: 0deg; --lift: 0px; position: relative; isolation: isolate; display: grid; place-items: center; min-height: clamp(410px, 60vw, 550px); overflow: hidden; padding: clamp(2rem, 7vw, 5rem); border: 1px solid #ffffff35; border-radius: 30px; background: linear-gradient(145deg, #302448, #211b3c 52%, #174047); box-shadow: 0 32px 80px #06040e99, inset 0 1px #ffffff30; transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--lift)); transform-style: preserve-3d; transition: transform .18s ease-out, box-shadow .3s ease; will-change: transform; }
+    .cover::before, .cover::after { position: absolute; z-index: -1; width: 420px; aspect-ratio: 1; border-radius: 50%; content: ""; filter: blur(2px); opacity: .76; transform: translateZ(-35px); }
+    .cover::before { top: -240px; left: -160px; background: radial-gradient(circle, #9b75e477 0, transparent 70%); animation: drift 11s ease-in-out infinite alternate; }
+    .cover::after { right: -210px; bottom: -270px; background: radial-gradient(circle, #62d4bb66 0, transparent 70%); animation: drift 14s ease-in-out infinite alternate-reverse; }
+    .stars { position: absolute; inset: 0; z-index: -1; transform: translateZ(-15px); background-image: radial-gradient(2px 2px at 12% 25%, #fff8 50%, transparent 100%), radial-gradient(2px 2px at 82% 18%, #d7c8ffb3 50%, transparent 100%), radial-gradient(1.5px 1.5px at 74% 73%, #fff9 50%, transparent 100%), radial-gradient(2px 2px at 20% 82%, #9de8d0b3 50%, transparent 100%), radial-gradient(1px 1px at 57% 13%, #fff9 50%, transparent 100%); }
+    .orb { position: absolute; z-index: -1; width: 74px; height: 74px; border: 1px solid #ffffff75; border-radius: 50%; background: linear-gradient(140deg, #e5dcff80, #a27ce422 60%, #9de8d044); box-shadow: inset -10px -12px 20px #0e0a3333, 0 10px 40px #ac92ff24; backdrop-filter: blur(3px); transform: translateZ(55px); animation: bob 5s ease-in-out infinite; }
+    .orb.one { top: 17%; right: 13%; width: 48px; height: 48px; animation-delay: -1.5s; }
+    .orb.two { bottom: 17%; left: 12%; width: 33px; height: 33px; animation-delay: -3s; }
+    .cover-content { position: relative; max-width: 610px; transform: translateZ(55px); }
+    .emblem { display: grid; place-items: center; width: 76px; height: 76px; margin: 0 auto 1.5rem; border: 1px solid #ffffff4a; border-radius: 25px; background: #ffffff12; box-shadow: 0 10px 35px #0e0a2670, inset 0 1px #ffffff40; color: var(--mint); font-size: 2.2rem; animation: float 4s ease-in-out infinite; }
+    .eyebrow { margin: 0 0 .85rem; color: var(--mint); font-size: .73rem; font-weight: 750; letter-spacing: .22em; text-transform: uppercase; }
+    h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.6rem, 8vw, 5.6rem); font-weight: 500; line-height: .98; letter-spacing: -.055em; text-wrap: balance; }
     h1 span { display: block; color: var(--lilac); font-style: italic; }
-    .ornament { display: flex; align-items: center; justify-content: center; gap: .8rem; margin: 2rem auto 1.5rem; color: var(--mint); }
-    .ornament::before, .ornament::after { width: 52px; height: 1px; background: linear-gradient(90deg, transparent, #9de8d0aa); content: ""; }
-    .ornament::after { transform: rotate(180deg); }
-    .intro { max-width: 500px; margin: 0 auto; color: var(--muted); font-size: clamp(1rem, 2.4vw, 1.2rem); line-height: 1.8; }
-    .tagline { display: inline-block; margin-top: 2.1rem; padding: .7rem 1rem; border: 1px solid #ffffff2b; border-radius: 999px; background: #ffffff0b; color: #eee8ff; font-size: .83rem; letter-spacing: .04em; }
-    .note { max-width: 460px; margin: 1.5rem auto 0; color: #c4bfd4; font-size: .78rem; line-height: 1.6; }
-    .edge { position: absolute; right: 1.5rem; bottom: 1.25rem; left: 1.5rem; color: #ffffff70; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
-    @keyframes rise-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes float { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-9px) rotate(3deg); } }
-    @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(35px, 24px) scale(1.14); } }
-    @media (max-width: 520px) { .cover { min-height: calc(100svh - 3rem); border-radius: 22px; } .emblem { width: 72px; height: 72px; border-radius: 23px; font-size: 2.1rem; } .edge { font-size: .62rem; } }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
+    .intro { max-width: 490px; margin: 1.25rem auto 0; color: var(--muted); font-size: clamp(.95rem, 2.3vw, 1.1rem); line-height: 1.75; }
+    .tagline { display: inline-block; margin-top: 1.55rem; padding: .65rem .95rem; border: 1px solid #ffffff30; border-radius: 999px; background: #ffffff0b; color: #eee8ff; font-size: .8rem; letter-spacing: .03em; }
+    .cover-note { max-width: 420px; margin: 1rem auto 0; color: #c4bfd4; font-size: .72rem; line-height: 1.55; }
+    .hint { margin: 1.2rem 0 0; color: #c4bfd4; font-size: .8rem; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 1.65rem; }
+    button, .button-link { min-height: 46px; padding: .72rem 1.15rem; border: 1px solid #ffffff35; border-radius: 999px; background: #ffffff0e; color: var(--ink); font: inherit; font-size: .9rem; font-weight: 650; text-decoration: none; cursor: pointer; transition: background .2s, transform .2s, border-color .2s; }
+    button:hover, .button-link:hover { transform: translateY(-2px); border-color: #c4a8ff99; background: #ffffff18; }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--mint); outline-offset: 4px; }
+    .primary { border-color: transparent; background: linear-gradient(100deg, #8968df, #4a9d8c); box-shadow: 0 8px 26px #8b6df033; }
+    .primary:hover { background: linear-gradient(100deg, #997beb, #5db49e); }
+    .tutorial { padding: clamp(3.5rem, 8vw, 6rem) 1.25rem; background: #f5f2fb; color: #25213c; }
+    .tutorial-inner { width: min(100%, 940px); margin: auto; }
+    .section-label { margin: 0 0 .6rem; color: #6848cb; font-size: .75rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .tutorial h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.1rem, 6vw, 3.8rem); font-weight: 500; letter-spacing: -.04em; }
+    .section-intro { max-width: 660px; margin: 1rem 0 2rem; color: #5b5670; line-height: 1.7; }
+    .lesson { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, .75fr); gap: 1.5rem; align-items: stretch; }
+    .lesson-card, .code-card { border: 1px solid #e4dff0; border-radius: 20px; background: #fff; box-shadow: 0 14px 40px #211b3c0c; }
+    .lesson-card { padding: clamp(1.35rem, 4vw, 2rem); }
+    .step-count { display: inline-flex; align-items: center; gap: .5rem; color: #6848cb; font-size: .8rem; font-weight: 750; }
+    .step-dot { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #f0ebff; }
+    .lesson h3 { margin: 1rem 0 .6rem; font-size: 1.3rem; }
+    .lesson-copy { min-height: 5.5em; margin: 0; color: #5b5670; line-height: 1.7; }
+    .lesson-controls { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: 1.5rem; }
+    .lesson-controls button { border-color: #ded7ec; background: #fff; color: #342d4c; }
+    .lesson-controls button:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+    .code-card { display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 1.25rem; background: #211b36; color: #e9e3fa; }
+    .code-label { margin: 0 0 .7rem; color: #b7a4f4; font-size: .72rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    pre { margin: 0; overflow-x: auto; color: #dcd5ec; font: .82rem/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre-wrap; }
+    code { color: #a7ebd2; }
+    .progress { height: 5px; margin-top: 1.5rem; overflow: hidden; border-radius: 5px; background: #e9e4f2; }
+    .progress-fill { width: 25%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #8968df, #4a9d8c); transition: width .3s ease; }
+    .footer { padding: 1.4rem; color: #c4bfd4; text-align: center; font-size: .76rem; }
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-8px) rotate(3deg); } }
+    @keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+    @keyframes drift { to { translate: 25px 20px; scale: 1.12; } }
+    @media (max-width: 680px) { .lesson { grid-template-columns: 1fr; } .code-card { min-height: 145px; } .cover { min-height: 460px; } }
+    @media (max-width: 430px) { .cover { min-height: 490px; border-radius: 22px; } .orb.one { right: 7%; } .orb.two { left: 7%; } .lesson-controls button { padding-inline: .8rem; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .cover { transform: none !important; } }
   </style>
 </head>
 <body>
-  <main class="cover" aria-labelledby="title">
-    <div class="sparkles" aria-hidden="true"></div>
-    <div class="content">
-      <div class="emblem" aria-hidden="true">♡</div>
-      <p class="eyebrow">A learning project</p>
-      <h1 id="title">My Disorders <span>Project</span></h1>
-      <div class="ornament" aria-hidden="true">✦</div>
-      <p class="intro">A space for learning, sharing, and understanding. Every person’s experience is unique—and compassion helps us see the person beyond a diagnosis.</p>
-      <div class="tagline">Learn with curiosity · Lead with kindness</div>
-      <p class="note">For educational purposes only. This project is not a substitute for professional medical advice.</p>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="topline">A little 3D web design lesson</p>
+      <div class="scene" id="scene">
+        <main class="cover" id="cover" aria-labelledby="title">
+          <div class="stars" aria-hidden="true"></div><span class="orb one" aria-hidden="true"></span><span class="orb two" aria-hidden="true"></span>
+          <div class="cover-content">
+            <div class="emblem" aria-hidden="true">♡</div>
+            <p class="eyebrow">A learning project</p>
+            <h1 id="title">My Disorders <span>Project</span></h1>
+            <p class="intro">A space for learning, sharing, and understanding. Every person’s experience is unique—and compassion helps us see the person beyond a diagnosis.</p>
+            <div class="tagline">Learn with curiosity · Lead with kindness</div>
+            <p class="cover-note">For educational purposes only. This project is not a substitute for professional medical advice.</p>
+          </div>
+        </main>
+      </div>
+      <p class="hint">Move your pointer over the cover—or tilt your phone—to see the 3D effect.</p>
+      <div class="actions"><button class="primary" id="startTutorial" type="button">Show me how it’s made ↓</button><button id="motionToggle" type="button" aria-pressed="false">Pause motion</button></div>
     </div>
-    <div class="edge">Understanding starts with listening</div>
-  </main>
+  </header>
+  <section class="tutorial" id="tutorial" aria-labelledby="tutorialTitle">
+    <div class="tutorial-inner">
+      <p class="section-label">Follow along</p>
+      <h2 id="tutorialTitle">How to make this cover</h2>
+      <p class="section-intro">A tiny beginner-friendly walkthrough. Use the buttons to step through the ideas—the preview above is the finished result. No extra libraries are needed: the depth and movement use CSS, with a little JavaScript for pointer tracking.</p>
+      <div class="lesson" aria-live="polite">
+        <article class="lesson-card">
+          <div class="step-count"><span class="step-dot" id="stepDot">1</span><span id="stepCount">Step 1 of 4</span></div>
+          <h3 id="stepTitle">Build the cover</h3>
+          <p class="lesson-copy" id="stepCopy">Start with a semantic main element for the cover. Put the title, a short description, and decorative elements inside it so the content stays organized.</p>
+          <div class="progress" aria-label="Tutorial progress"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="lesson-controls"><button id="prevStep" type="button" disabled>← Previous</button><button class="primary" id="nextStep" type="button">Next step →</button></div>
+        </article>
+        <aside class="code-card" aria-label="Code example for the current tutorial step"><p class="code-label" id="codeLabel">HTML · structure</p><pre><code id="codeExample">&lt;main class="cover"&gt;
+  &lt;h1&gt;My Disorders Project&lt;/h1&gt;
+  &lt;p&gt;A learning project…&lt;/p&gt;
+&lt;/main&gt;</code></pre></aside>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">Made with care · Educational content, not medical advice.</footer>
+  <script>
+    const scene = document.getElementById('scene');
+    const cover = document.getElementById('cover');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let motionPaused = reduceMotion.matches;
+    const motionToggle = document.getElementById('motionToggle');
+
+    function tiltAt(clientX, clientY) {
+      if (motionPaused || reduceMotion.matches) return;
+      const rect = scene.getBoundingClientRect();
+      const x = (clientX - rect.left) / rect.width;
+      const y = (clientY - rect.top) / rect.height;
+      cover.style.setProperty('--rx', `${(0.5 - y) * 13}deg`);
+      cover.style.setProperty('--ry', `${(x - 0.5) * 16}deg`);
+      cover.style.setProperty('--lift', '-5px');
+    }
+    function resetTilt() {
+      cover.style.setProperty('--rx', '0deg');
+      cover.style.setProperty('--ry', '0deg');
+      cover.style.setProperty('--lift', '0px');
+    }
+    scene.addEventListener('pointermove', event => { if (event.pointerType === 'mouse' || event.pointerType === 'pen') tiltAt(event.clientX, event.clientY); });
+    scene.addEventListener('pointerleave', resetTilt);
+    scene.addEventListener('touchmove', event => { if (event.touches[0]) tiltAt(event.touches[0].clientX, event.touches[0].clientY); }, { passive: true });
+    scene.addEventListener('touchend', resetTilt, { passive: true });
+
+    motionToggle.addEventListener('click', () => {
+      motionPaused = !motionPaused;
+      document.body.classList.toggle('motion-paused', motionPaused);
+      motionToggle.textContent = motionPaused ? 'Resume motion' : 'Pause motion';
+      motionToggle.setAttribute('aria-pressed', String(motionPaused));
+      if (motionPaused) resetTilt();
+    });
+    const pauseStyle = document.createElement('style');
+    pauseStyle.textContent = '.motion-paused *, .motion-paused *::before, .motion-paused *::after { animation-play-state: paused !important; }';
+    document.head.append(pauseStyle);
+
+    const steps = [
+      { title: 'Build the cover', copy: 'Start with a semantic main element for the cover. Put the title, a short description, and decorative elements inside it so the content stays organized.', label: 'HTML · structure', code: '<main class="cover">\n  <h1>My Disorders Project</h1>\n  <p>A learning project…</p>\n</main>' },
+      { title: 'Create depth with perspective', copy: 'Perspective belongs on the parent scene. It makes the child card feel like it tilts toward or away from you, instead of rotating flat on the screen.', label: 'CSS · 3D perspective', code: '.scene {\n  perspective: 1100px;\n}\n.cover {\n  transform-style: preserve-3d;\n}' },
+      { title: 'Lift layers forward', copy: 'Use translateZ() to place the title and decorations closer to the viewer. Small differences in depth make the design feel dimensional.', label: 'CSS · depth layers', code: '.cover-content {\n  transform: translateZ(55px);\n}\n.orb {\n  transform: translateZ(35px);\n}' },
+      { title: 'Animate the tilt', copy: 'JavaScript reads the pointer position and updates CSS rotation variables. Add gentle keyframe motion for floating shapes, and respect reduced-motion preferences.', label: 'JS + CSS · interaction', code: 'cover.style.setProperty(\n  "--ry", `${tilt}deg`\n);\n\n@media (prefers-reduced-motion: reduce) {\n  /* minimize animation */\n}' }
+    ];
+    let currentStep = 0;
+    const stepDot = document.getElementById('stepDot');
+    const stepCount = document.getElementById('stepCount');
+    const stepTitle = document.getElementById('stepTitle');
+    const stepCopy = document.getElementById('stepCopy');
+    const codeLabel = document.getElementById('codeLabel');
+    const codeExample = document.getElementById('codeExample');
+    const progressFill = document.getElementById('progressFill');
+    const prevStep = document.getElementById('prevStep');
+    const nextStep = document.getElementById('nextStep');
+    function renderStep() {
+      const step = steps[currentStep];
+      stepDot.textContent = String(currentStep + 1);
+      stepCount.textContent = `Step ${currentStep + 1} of ${steps.length}`;
+      stepTitle.textContent = step.title;
+      stepCopy.textContent = step.copy;
+      codeLabel.textContent = step.label;
+      codeExample.textContent = step.code;
+      progressFill.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
+      prevStep.disabled = currentStep === 0;
+      nextStep.textContent = currentStep === steps.length - 1 ? 'Start again ↺' : 'Next step →';
+    }
+    prevStep.addEventListener('click', () => { currentStep = Math.max(0, currentStep - 1); renderStep(); });
+    nextStep.addEventListener('click', () => { currentStep = (currentStep + 1) % steps.length; renderStep(); });
+    document.getElementById('startTutorial').addEventListener('click', () => document.getElementById('tutorial').scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth' }));
+    renderStep();
+  </script>
 </body>
 </html>
