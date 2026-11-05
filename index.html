@@ -28,7 +28,7 @@
     <div class="intro-box">
       <p class="intro-kicker">A little welcome from Mo</p>
       <div class="stage" id="question"><div class="stage-icon" aria-hidden="true">✦</div><h2>Are you Miss Halsted?</h2><p>Pick your answer and come on in.</p><p>This is Mo’s student project about celiac disease.</p><div class="choices"><button class="choice yes" id="yes" type="button">Yes, that’s me!</button><button class="choice" id="no" type="button">No</button></div></div>
-      <div class="stage" id="profile" hidden><div class="profile-photo"><img src="https://raw.githubusercontent.com/c0methub/website-assets/main/Screenshot_20261027_123721_Snapchat.jpg" alt="Mo. Dewan"></div><h2>Hi, I’m Mo.</h2><p>I’m presenting celiac disease to you. I hope you enjoy it!</p><span class="profile-tag">✦ My celiac disease presentation</span><p class="love">Made for you with love &lt;3</p><button class="continue" id="continue" type="button">See my presentation →</button></div>
+      <div class="stage" id="profile" hidden><div class="profile-photo"><img src="https://raw.githubusercontent.com/c0methub/website-assets/main/Screenshot_20261027_123721_Snapchat.jpg" alt="Mo. Dewan"></div><h2>Hi, I’m Mo.</h2><p>I’m presenting celiac disease to you. I hope you enjoy it!</p><span class="profile-tag">✦ My celiac disease presentation</span><p class="love">Made with love &lt;3</p><button class="continue" id="continue" type="button">See my presentation →</button></div>
       <div class="stage" id="visitor" hidden><div class="goodbye-mark" aria-hidden="true">✦</div><h2>Thanks for stopping by.</h2><p>This presentation is for Miss Halsted. You can close this tab now.</p><button class="continue" id="close-page" type="button">Close this page</button><p id="close-note" aria-live="polite"></p></div>
       <p class="intro-foot">CELIAC DISEASE, CLEARLY · A STUDENT PROJECT</p>
     </div>
@@ -78,13 +78,10 @@
       });
 
       noButton.addEventListener('click', () => {
-        // Try to close the tab immediately. If the browser blocks it, leave the
-        // visitor on a blank page rather than showing the presentation.
         window.close();
         window.setTimeout(() => window.location.replace('about:blank'), 50);
       });
 
-      // Stop swipe/overscroll from moving the page while the welcome screen is open.
       intro.addEventListener('touchmove', event => event.preventDefault(), {passive: false});
       intro.addEventListener('wheel', event => event.preventDefault(), {passive: false});
 
