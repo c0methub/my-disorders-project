@@ -4,491 +4,51 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10251f">
-  <meta name="description" content="Mo. Dewan’s student guide to celiac disease: causes, symptoms, treatment, testing, and trusted sources.">
+  <meta name="description" content="Mo. Dewan’s student guide to celiac disease: symptoms, causes, diagnosis, treatment and reliable sources.">
   <title>Celiac Disease, Clearly | Mo. Dewan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --paper: #f7f1e7;
-      --ink: #1f322d;
-      --muted: #577066;
-      --green: #214f43;
-      --deep: #163e35;
-      --orange: #d87248;
-      --line: #e4d9cb;
-      --white: #fffdf9;
-      --serif: "Playfair Display", Georgia, serif;
-      --sans: "DM Sans", Arial, sans-serif;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body {
-      margin: 0;
-      background: linear-gradient(180deg, #f7f1e7 0%, #fbf7f2 50%, #f5eee4 100%);
-      color: var(--ink);
-      font-family: var(--sans);
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .wrap { width: min(1120px, calc(100% - 2rem)); margin-inline: auto; }
-
-    .intro {
-      position: fixed;
-      inset: 0;
-      z-index: 60;
-      display: grid;
-      place-items: center;
-      padding: 1rem;
-      background: #10251f;
-      color: #fffaf1;
-      transition: opacity 0.7s ease;
-    }
-    .intro[aria-hidden="true"] {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .intro-box {
-      width: min(560px, 100%);
-      padding: 2rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      background: rgba(12, 28, 26, 0.9);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.22);
-      text-align: center;
-    }
-    .intro-kicker {
-      margin: 0 0 1rem;
-      color: #d9f4d8;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.7rem;
-      font-weight: 800;
-    }
-    .stage {
-      display: grid;
-      gap: 0.9rem;
-    }
-    .stage h2 {
-      margin: 0;
-      font: 600 clamp(2rem, 6vw, 3rem) / 1.02 var(--serif);
-      letter-spacing: -0.05em;
-    }
-    .stage p {
-      margin: 0;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.6;
-    }
-    .intro-small {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.7);
-    }
-    .choices {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 0.4rem;
-    }
-    .choice, .continue {
-      appearance: none;
-      border: none;
-      border-radius: 999px;
-      padding: 0.9rem 1.3rem;
-      font: inherit;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-    .choice {
-      background: #f1ece4;
-      color: var(--deep);
-    }
-    .continue {
-      background: linear-gradient(135deg, var(--orange), #efad7c);
-      color: white;
-      margin-top: 0.3rem;
-    }
-    .choice:hover, .continue:hover { transform: translateY(-1px); }
-    .photo-label {
-      display: inline-block;
-      margin-top: 0.4rem;
-      color: rgba(255,255,255,0.8);
-      font-size: 0.9rem;
-    }
-    .photo-label input {
-      display: block;
-      margin: 0.5rem auto 0;
-    }
-    .intro-foot {
-      margin-top: 1.4rem;
-      color: rgba(255,255,255,0.65);
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .site {
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.7s ease;
-    }
-    .site.visible {
-      visibility: visible;
-      opacity: 1;
-    }
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
-      background: rgba(247, 241, 231, 0.82);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(22, 62, 53, 0.08);
-    }
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--deep);
-    }
-    .logo-mark {
-      display: grid;
-      place-items: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--green), var(--deep));
-      color: white;
-      font-family: var(--serif);
-      font-size: 1.2rem;
-    }
-    .navlinks {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.1rem;
-    }
-    .navlinks a {
-      position: relative;
-      color: var(--muted);
-      font-weight: 600;
-      padding: 0.35rem 0.1rem;
-    }
-    .navlinks a[aria-current="location"] {
-      color: var(--deep);
-    }
-    .navlinks a[aria-current="location"]::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -0.2rem;
-      height: 2px;
-      background: var(--orange);
-      border-radius: 999px;
-    }
-    .nav-toggle { display: none; }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 2rem;
-      align-items: center;
-      min-height: 620px;
-      padding: 4rem 0 2rem;
-    }
-    .eyebrow {
-      margin: 0 0 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: var(--orange);
-    }
-    h1 {
-      margin: 0;
-      color: var(--deep);
-      font: 600 clamp(3rem, 6vw, 5.6rem) / 0.94 var(--serif);
-      letter-spacing: -0.06em;
-    }
-    h1 em {
-      color: var(--orange);
-      font-style: italic;
-    }
-    .lede {
-      max-width: 620px;
-      margin: 1.2rem 0 1.5rem;
-      font-size: clamp(1.08rem, 1.8vw, 1.25rem);
-      line-height: 1.7;
-      color: var(--muted);
-    }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.9rem 1.3rem;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--orange), #eea778);
-      color: white;
-      font-weight: 800;
-      box-shadow: 0 16px 28px rgba(216, 114, 72, 0.25);
-    }
-    .hero-visual {
-      position: relative;
-      min-height: 520px;
-      display: grid;
-      place-items: center;
-    }
-    .sunburst {
-      position: absolute;
-      inset: 8% 12%;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(246,232,214,1) 0%, rgba(240,211,175,0.8) 25%, rgba(240,211,175,0.25) 45%, rgba(240,211,175,0) 70%);
-      filter: blur(2px);
-    }
-    .hero-photo {
-      position: relative;
-      width: min(80%, 420px);
-      height: 520px;
-      overflow: hidden;
-      border-radius: 30px;
-      border: 4px solid rgba(36, 79, 67, 0.2);
-      box-shadow: 0 28px 50px rgba(16, 37, 31, 0.18);
-    }
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .photo-tag {
-      position: absolute;
-      left: 1rem;
-      bottom: 1rem;
-      background: rgba(17, 35, 30, 0.8);
-      color: white;
-      padding: 0.55rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-    .floating-note {
-      position: absolute;
-      right: 0;
-      bottom: 2.5rem;
-      background: #fffdf8;
-      border: 1px solid rgba(33, 79, 67, 0.12);
-      border-radius: 18px;
-      padding: 0.9rem 1rem;
-      box-shadow: 0 18px 28px rgba(18, 40, 34, 0.12);
-      color: var(--deep);
-      line-height: 1.4;
-      font-size: 0.96rem;
-    }
-    .note-icon { color: var(--orange); font-weight: 800; }
-    .scribble {
-      position: absolute;
-      left: 0;
-      top: 1rem;
-      transform: rotate(-10deg);
-      font-family: var(--serif);
-      font-style: italic;
-      color: var(--green);
-      font-size: 1.4rem;
-    }
-
-    .notice {
-      width: min(940px, calc(100% - 2rem));
-      margin: 2.5rem auto 0;
-      padding: 1rem 1.2rem;
-      border-left: 4px solid var(--orange);
-      background: #fff8f1;
-      border-radius: 0 14px 14px 0;
-      color: var(--deep);
-      font-weight: 700;
-      line-height: 1.6;
-    }
-
-    .section {
-      padding: 4.5rem 0;
-    }
-    .section.alt {
-      background: rgba(255, 255, 255, 0.22);
-    }
-    .section-header {
-      max-width: 780px;
-      margin-bottom: 2rem;
-    }
-    .label {
-      margin: 0 0 0.8rem;
-      color: var(--orange);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.7rem;
-      font-weight: 800;
-    }
-    .section-header h2 {
-      margin: 0;
-      color: var(--deep);
-      font: 600 clamp(2.1rem, 4vw, 3.4rem) / 1.05 var(--serif);
-      letter-spacing: -0.04em;
-    }
-    .section-header p:last-child {
-      margin-top: 0.85rem;
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.7;
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.in {
-      opacity: 1;
-      transform: none;
-    }
-
-    .info-box, .mini-card, .fact-card, .creative-box {
-      padding: 1.2rem 1.3rem;
-      background: rgba(255,255,255,0.45);
-      border: 1px solid rgba(26,58,50,0.1);
-      border-radius: 18px;
-      box-shadow: 0 12px 24px rgba(22,62,53,0.04);
-    }
-    .info-box strong, .mini-card h3, .fact-card h3 { color: var(--deep); }
-    .fact-grid, .grid-3, .two-col {
-      display: grid;
-      gap: 1rem;
-    }
-    .fact-grid, .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .info-box.accent { background: #fff1e6; }
-    .note {
-      margin-top: 1rem;
-      color: var(--muted);
-      font-weight: 600;
-    }
-    .creative-box {
-      background: linear-gradient(135deg, #f8efe7, #fffdf8);
-    }
-    .source-list {
-      display: grid;
-      gap: 0.8rem;
-    }
-    .source-list a {
-      display: block;
-      padding: 0.9rem 1rem;
-      border-radius: 12px;
-      background: #fffdf8;
-      border: 1px solid rgba(22, 62, 53, 0.08);
-      color: var(--deep);
-      font-weight: 700;
-    }
-    .site-footer {
-      padding: 2rem 0 3rem;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(22, 62, 53, 0.1);
-      color: var(--muted);
-    }
-    .footer-brand { color: var(--deep); font-weight: 700; }
-
-    @media (max-width: 850px) {
-      .nav { padding: 0.8rem 1rem; }
-      .nav-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.7rem 0.9rem;
-        border: 1px solid rgba(22, 62, 53, 0.15);
-        border-radius: 10px;
-        background: #fffdf8;
-        color: var(--deep);
-        font-weight: 700;
-        cursor: pointer;
-      }
-      .navlinks {
-        position: absolute;
-        top: calc(100% + 0.5rem);
-        left: 1rem;
-        right: 1rem;
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-        border: 1px solid rgba(22,62,53,0.1);
-        border-radius: 16px;
-        background: rgba(255, 253, 249, 0.98);
-        box-shadow: 0 18px 34px rgba(19,41,35,0.12);
-      }
-      .navlinks.open { display: flex; }
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding-top: 3.2rem;
-      }
-      .hero-visual { min-height: 390px; }
-      .hero-photo { height: 430px; }
-      .fact-grid, .grid-3, .two-col { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
-    }
-    @media (max-width: 560px) {
-      .logo { font-size: 0.95rem; }
-      .hero-photo { height: 360px; }
-      .floating-note { right: 0.5rem; bottom: 1rem; }
-      .wrap { width: calc(100% - 1.2rem); }
-    }
+    :root{--paper:#f7f1e7;--ink:#1f322d;--muted:#577066;--green:#214f43;--deep:#163e35;--sage:#dfeae1;--peach:#f5d3bd;--orange:#d87248;--line:#e4d9cb;--white:#fffdf9;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;background:linear-gradient(180deg,#f7f1e7,#fbf7f2 50%,#f5eee4);color:var(--ink);font-family:var(--sans)}body{overflow:hidden}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 2rem));margin-inline:auto}.skip-link{position:fixed;left:1rem;top:-5rem;z-index:100;padding:.7rem 1rem;background:#fff;border-radius:8px}.skip-link:focus{top:1rem}.intro{--glow:#8caf82;position:fixed;inset:0;z-index:60;display:grid;place-items:center;overflow:hidden;padding:1rem;background:#10251f;color:#fffaf1;isolation:isolate;transition:opacity .65s ease,visibility .65s}.intro[aria-hidden=true]{opacity:0;visibility:hidden;pointer-events:none}.intro-sparkles,.intro-orbit{position:absolute;inset:0;pointer-events:none}.intro-sparkles{background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.15),transparent 38%)}.spark{position:absolute;display:block;width:6px;height:6px;background:rgba(255,255,255,.7);border-radius:50%;box-shadow:0 0 22px rgba(255,255,255,.8);animation:twinkle 3s ease-in-out infinite}.spark:nth-child(1){top:18%;left:20%}.spark:nth-child(2){top:26%;right:22%}.spark:nth-child(3){left:32%;bottom:28%}.spark:nth-child(4){right:32%;bottom:18%}.spark:nth-child(5){top:40%;left:50%}.spark:nth-child(6){bottom:22%;right:48%}.intro-orbit{display:grid;place-items:center}.intro-orbit::before,.intro-orbit::after{content:"";position:absolute;border:1px solid rgba(255,255,255,.18);border-radius:50%;transform:rotateX(65deg)}.intro-orbit::before{width:min(72vmin,620px);height:min(72vmin,620px)}.intro-orbit::after{width:min(49vmin,420px);height:min(49vmin,420px)}.intro-box{position:relative;z-index:1;width:min(590px,100%);padding:clamp(1.5rem,5vw,3rem);border:1px solid rgba(255,255,255,.2);border-radius:28px;background:rgba(16,37,31,.72);box-shadow:0 28px 72px rgba(0,0,0,.35);text-align:center;backdrop-filter:blur(10px)}.intro-kicker,.intro-foot{color:#d9f4d8;text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;font-weight:800}.intro-kicker{margin:0 0 1.2rem}.intro-foot{margin:1.5rem 0 0;color:rgba(255,255,255,.8);font-size:.64rem}.stage{display:grid;justify-items:center;gap:.9rem;animation:stage-arrive .68s cubic-bezier(.2,.8,.2,1) both}.stage[hidden]{display:none!important}.stage h1,.stage h2{margin:0;color:#fffaf1;font:600 clamp(2.2rem,6vw,3.8rem)/1.02 var(--serif);letter-spacing:-.05em}.stage p{margin:0;max-width:38ch;color:rgba(255,250,241,.9);line-height:1.65}.stage-icon{font-size:2rem;color:#efad7c}.choices{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-top:.35rem}.choice,.continue{border:0;border-radius:999px;padding:.9rem 1.35rem;font:700 1rem var(--sans);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}.choice{background:#fffaf1;color:var(--deep)}.choice.yes,.continue{background:linear-gradient(135deg,#d87248,#efad7c);color:#fff;box-shadow:0 16px 30px rgba(216,114,72,.35)}.choice:hover,.continue:hover{transform:translateY(-3px)}.profile-photo{width:clamp(118px,26vw,160px);height:clamp(118px,26vw,160px);padding:5px;border-radius:50%;background:conic-gradient(#efad7c,#d9f4d8,#70a987,#efad7c);box-shadow:0 0 0 9px rgba(255,255,255,.08),0 20px 40px rgba(0,0,0,.25);animation:float 4s ease-in-out infinite}.profile-photo img{width:100%;height:100%;border:4px solid #10251f;border-radius:50%;object-fit:cover}.profile-badge{display:inline-flex;justify-self:center;padding:.45rem .8rem;border:1px solid rgba(217,244,216,.35);border-radius:999px;color:#d9f4d8;font-size:.78rem;font-weight:700}.love{color:#ffb6a2!important;font-size:1.15rem}.goodbye-mark{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.08);color:#efad7c;font-size:1.8rem}.intro-small{font-size:.85rem;color:rgba(255,255,255,.76)!important}.site{visibility:hidden;opacity:0;transition:opacity .8s ease}.site.visible{visibility:visible;opacity:1}.site[hidden]{display:none!important}.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;background:rgba(247,241,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(22,62,53,.08)}.logo{display:flex;align-items:center;gap:.5rem;color:var(--deep);font-weight:800}.logo-mark{display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--deep));color:#fff;font-family:var(--serif)}.navlinks{display:flex;align-items:center;flex-wrap:wrap;gap:1rem}.navlinks a{padding:.4rem .1rem;color:var(--muted);font-size:.9rem;font-weight:700;transition:color .2s}.navlinks a:hover,.navlinks a[aria-current=location]{color:var(--orange)}.nav-toggle{display:none}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;min-height:610px;padding:4rem 0 2rem}.eyebrow,.label{margin:0 0 .9rem;color:var(--orange);font-size:.7rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}.hero h1{margin:0;color:var(--deep);font:600 clamp(3.2rem,7vw,6rem)/.93 var(--serif);letter-spacing:-.06em}.hero h1 em{color:var(--orange)}.lede{max-width:620px;margin:1.2rem 0 1.5rem;color:var(--muted);font-size:clamp(1.05rem,2vw,1.25rem);line-height:1.7}.button{display:inline-flex;padding:.9rem 1.3rem;border-radius:999px;background:linear-gradient(135deg,var(--orange),#eea778);color:#fff;font-weight:800;box-shadow:0 14px 28px rgba(216,114,72,.30);transition:transform .2s}.button:hover{transform:translateY(-3px)}.hero-visual{position:relative;display:grid;place-items:center;min-height:500px}.sunburst{position:absolute;inset:8% 12%;border-radius:50%;background:radial-gradient(circle,#f6e8d6 0,#f0d3afaa 30%,transparent 70%)}.hero-photo{position:relative;width:min(80%,420px);height:480px;overflow:hidden;border:4px solid rgba(33,79,67,.2);border-radius:30px;box-shadow:0 28px 50px rgba(16,37,31,.2)}.hero-photo img{width:100%;height:100%;object-fit:cover}.photo-tag{position:absolute;left:1rem;bottom:1rem;padding:.55rem .8rem;border-radius:999px;background:rgba(17,35,30,.9);color:#fff;font-size:.8rem;font-weight:700}.floating-note{position:absolute;right:0;bottom:2.5rem;padding:.9rem 1rem;border:1px solid rgba(33,79,67,.12);border-radius:18px;background:#fffdf8;box-shadow:0 18px 28px rgba(18,40,34,.12);color:var(--deep);line-height:1.4;animation:float 5s ease-in-out infinite}.notice{width:min(940px,calc(100% - 2rem));margin:2.5rem auto 0;padding:1rem 1.2rem;border-left:4px solid var(--orange);border-radius:0 14px 14px 0;background:#fff8f1;color:var(--deep);font-weight:700;line-height:1.6;box-shadow:0 14px 32px rgba(22,62,53,.06)}.section{position:relative;padding:4.7rem 0}.section.alt{background:rgba(255,255,255,.22)}.section-header{max-width:780px;margin-bottom:2rem}.section-header h2{margin:0;color:var(--deep);font:600 clamp(2.15rem,4vw,3.5rem)/1.04 var(--serif);letter-spacing:-.045em}.section-header>p:last-child{margin:.9rem 0 0;color:var(--muted);font-size:1.02rem;line-height:1.75}.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.reveal.in{opacity:1;transform:none}.fact-grid,.grid-3,.two-col{display:grid;gap:1rem}.fact-grid,.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.two-col{grid-template-columns:repeat(2,minmax(0,1fr))}.info-box,.mini-card,.fact-card,.creative-box{padding:1.25rem 1.35rem;border:1px solid rgba(26,58,50,.1);border-radius:20px;background:rgba(255,255,255,.7);box-shadow:0 14px 30px rgba(22,62,53,.05)}.mini-card h3,.fact-card h3{margin:.1rem 0 .6rem;color:var(--deep);font:600 1.35rem var(--serif)}.info-box p,.mini-card p,.fact-card p,.creative-box p{color:var(--muted);line-height:1.7}.info-box strong{color:var(--deep)}.info-box.accent{background:#fff1e6}.note{margin-top:1rem;color:var(--muted);font-weight:600;line-height:1.65}.creative-box{background:linear-gradient(135deg,#f8efe7,#fffdf8)}.source-list{display:grid;gap:.8rem}.source-list a{display:block;padding:1rem 1.1rem;border:1px solid rgba(22,62,53,.12);border-radius:14px;background:#fffdf8;color:var(--deep);font-weight:700;transition:transform .2s,border-color .2s}.source-list a:hover{transform:translateX(5px);border-color:rgba(216,114,72,.55)}.site-footer{padding:2rem 0 3rem}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:1.5rem;border-top:1px solid rgba(22,62,53,.12);color:var(--muted)}.footer-brand{color:var(--deep);font-weight:700}.reading-progress{position:fixed;inset:0 auto auto 0;z-index:80;width:100%;height:3px;pointer-events:none}.reading-progress span{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#d87248,#efad7c,#7ca77d)}
+    @keyframes twinkle{0%,100%{opacity:.4;transform:scale(.9)}50%{opacity:1;transform:scale(1.25)}}@keyframes stage-arrive{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}@keyframes float{50%{transform:translateY(-7px)}}
+    @media(max-width:850px){.nav{padding:.8rem 1rem}.nav-toggle{display:inline-flex;padding:.7rem .9rem;border:1px solid rgba(22,62,53,.15);border-radius:10px;background:#fffdf8;color:var(--deep);font-weight:700}.navlinks{position:absolute;top:calc(100% + .5rem);left:1rem;right:1rem;display:none;align-items:flex-start;flex-direction:column;padding:1rem;border:1px solid rgba(22,62,53,.1);border-radius:16px;background:#fffdf8;box-shadow:0 18px 34px rgba(19,41,35,.12)}.navlinks.open{display:flex}.hero{grid-template-columns:1fr;min-height:0;padding-top:3rem}.hero-visual{min-height:410px}.hero-photo{height:420px}.fact-grid,.grid-3,.two-col{grid-template-columns:1fr}.footer-inner{align-items:flex-start;flex-direction:column}}
+    @media(max-width:560px){.wrap{width:calc(100% - 1.2rem)}.hero-photo{height:350px}.floating-note{right:.3rem;bottom:.6rem}.section{padding:3.5rem 0}.intro-box{padding:1.5rem 1.1rem}.choices{flex-direction:column}.choice,.continue{width:100%}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to project</a>
+
   <section class="intro" id="intro" aria-label="Welcome">
+    <div class="intro-sparkles" aria-hidden="true"><i class="spark"></i><i class="spark"></i><i class="spark"></i><i class="spark"></i><i class="spark"></i><i class="spark"></i></div>
+    <div class="intro-orbit" aria-hidden="true"></div>
     <div class="intro-box">
       <p class="intro-kicker">A little welcome from Mo</p>
-
       <div class="stage" id="question">
-        <div aria-hidden="true">✦</div>
+        <div class="stage-icon" aria-hidden="true">✦</div>
         <h2>Are you Miss Halsted?</h2>
         <p>Pick your answer and come on in.</p>
         <p class="intro-small">This is Mo’s student project about celiac disease.</p>
-        <div class="choices">
-          <button class="choice yes" id="yes" type="button">Yes, that’s me!</button>
-          <button class="choice" id="no" type="button">No, just visiting</button>
-        </div>
+        <div class="choices"><button class="choice yes" id="yes" type="button">Yes, that’s me!</button><button class="choice" id="no" type="button">No, just visiting</button></div>
       </div>
-
       <div class="stage" id="profile" hidden>
-        <div aria-hidden="true">✦</div>
+        <div class="profile-photo"><img src="https://raw.githubusercontent.com/c0methub/website-assets/main/Screenshot_20261027_123721_Snapchat.jpg" alt="Mo. Dewan"></div>
         <h2>Hi, I’m Mo.</h2>
         <p>Student · curious about making health information easier to understand.</p>
-        <label class="photo-label">
-          Choose a different photo
-          <input type="file" id="photo" accept="image/*">
-        </label>
-        <button class="continue" id="continue" type="button">Enter the project →</button>
+        <span class="profile-badge">✦ Celiac disease guide</span>
+        <p class="love">Made for you with love &lt;3</p>
+        <button class="continue" id="continue" type="button">Enter the project <span aria-hidden="true">→</span></button>
       </div>
-
       <div class="stage" id="visitor" hidden>
-        <div aria-hidden="true">☀</div>
-        <h2>Welcome, visitor!</h2>
-        <p>This project is for everyone. Let’s explore celiac disease together.</p>
-        <button class="continue" id="enter" type="button">Explore the guide →</button>
+        <div class="goodbye-mark" aria-hidden="true">✦</div>
+        <h2>Thanks for stopping by.</h2>
+        <p>This presentation is for Miss Halsted. You can close this tab now.</p>
+        <button class="continue" id="close-page" type="button">Close this page</button>
+        <p class="intro-small" id="close-note" aria-live="polite"></p>
       </div>
-
-      <p class="intro-foot">Celiac disease, clearly · A student project</p>
+      <p class="intro-foot">CELIAC DISEASE, CLEARLY · A STUDENT PROJECT</p>
     </div>
   </section>
 
@@ -496,157 +56,130 @@
     <nav class="nav" aria-label="Main navigation">
       <a class="logo" href="#top" aria-label="Celiac, Clearly home"><span class="logo-mark">c.</span> Celiac, Clearly</a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
-      <div class="navlinks" id="nav-links">
-        <a href="#cause">Cause</a>
-        <a href="#prevalence">How common</a>
-        <a href="#symptoms">Symptoms</a>
-        <a href="#treatment">Care</a>
-        <a href="#detection">Check</a>
-        <a href="#creative">How to explain it</a>
-        <a href="#sources">Sources</a>
-      </div>
+      <div class="navlinks" id="nav-links"><a href="#about">What it is</a><a href="#symptoms">Symptoms</a><a href="#causes">Why it happens</a><a href="#diagnosis">Diagnosis</a><a href="#treatment">Treatment</a><a href="#sources">Sources</a></div>
     </nav>
 
     <header class="hero wrap" id="top">
-      <div>
-        <p class="eyebrow">A student guide · Health, explained with care</p>
-        <h1>Celiac disease,<br><em>clearly.</em></h1>
-        <p class="lede">When gluten triggers the body in the wrong way, it can affect the gut and how the body takes in nutrients. Here is a simple guide to what it is, what it can feel like, and what helps.</p>
-        <a class="button" href="#cause">Start reading ↓</a>
-      </div>
-      <div class="hero-visual" aria-label="Fresh bread, a source of wheat gluten">
-        <div class="sunburst" aria-hidden="true"></div>
-        <div class="hero-photo">
-          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85" alt="Fresh loaves of bread">
-          <span class="photo-tag">Wheat has gluten</span>
-        </div>
-        <div class="floating-note"><span class="note-icon">✦</span> <span>One condition.<br><strong>Many experiences.</strong></span></div>
-        <span class="scribble" aria-hidden="true">a closer look</span>
-      </div>
+      <div><p class="eyebrow">A student guide · Health, explained with care</p><h1>Celiac disease,<br><em>clearly.</em></h1><p class="lede">What happens when gluten meets an immune system that reacts to it? Here’s a clear, approachable guide to celiac disease—what it is, how it’s identified, and what treatment really means.</p><a class="button" href="#about">Start reading ↓</a></div>
+      <div class="hero-visual" aria-label="Fresh bread, a source of wheat gluten"><div class="sunburst" aria-hidden="true"></div><div class="hero-photo"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=85" alt="Fresh loaves of bread"><span class="photo-tag">Wheat contains gluten</span></div><div class="floating-note"><span class="note-icon">✦</span><span>One condition.<br><strong>Many experiences.</strong></span></div></div>
     </header>
 
-    <aside class="notice"><strong>Before testing, keep eating gluten unless a clinician tells you otherwise.</strong> Stopping gluten too early can make test results less reliable. If you think you might have celiac disease, talk to a healthcare professional.</aside>
+    <aside class="notice"><strong>Before testing, keep eating gluten unless a clinician tells you otherwise.</strong> Starting a gluten-free diet first can make test results less reliable. Talk to a healthcare professional if you think you may have celiac disease.</aside>
 
     <main id="main">
-      <section class="section reveal" id="cause">
-        <div class="wrap">
-          <div class="section-header">
-            <p class="label">01 · Cause</p>
-            <h2>What causes it?</h2>
-            <p>Celiac disease happens when the body reacts badly to gluten. Gluten is a protein found in wheat, barley, and rye. In people with celiac disease, the gut gets irritated and can become damaged over time.</p>
-          </div>
-          <div class="info-box">
-            <p><strong>Simple version:</strong> the body gets confused and attacks the gut when gluten is eaten.</p>
-            <p>It is not a food choice, and it is not the same as a wheat allergy. It often runs in families, but not everyone with the gene gets it.</p>
-          </div>
-        </div>
-      </section>
+      <section class="section alt reveal" id="about"><div class="wrap"><div class="section-header"><p class="label">01 · The basics</p><h2>So, what is celiac disease?</h2><p>It’s a long-term autoimmune condition where eating gluten triggers an immune response that can damage the small intestine.</p></div><div class="grid-3"><article class="mini-card"><h3>What gluten is</h3><p>Gluten is a group of proteins found in wheat, barley, and rye.</p></article><article class="mini-card"><h3>What it does</h3><p>It can injure the intestine and interfere with nutrient absorption.</p></article><article class="mini-card"><h3>What it is not</h3><p>Not the same as a wheat allergy or non-celiac gluten sensitivity.</p></article></div></div></section>
 
-      <section class="section alt reveal" id="prevalence">
-        <div class="wrap">
-          <div class="section-header">
-            <p class="label">02 · How common</p>
-            <h2>It is more common than many people think.</h2>
-            <p>About 1 in 100 people worldwide have celiac disease. It can show up at any age, and lots of people do not know they have it.</p>
-          </div>
-          <div class="fact-grid">
-            <article class="fact-card"><h3>Not rare</h3><p>It is not a strange or unusual illness.</p></article>
-            <article class="fact-card"><h3>Often missed</h3><p>Some people have mild signs, or no clear signs at all.</p></article>
-            <article class="fact-card"><h3>Families matter</h3><p>It can run in families, so asking about family history helps.</p></article>
-          </div>
-        </div>
-      </section>
+      <section class="section reveal" id="symptoms"><div class="wrap"><div class="section-header"><p class="label">02 · Symptoms</p><h2>Symptoms don’t follow one script.</h2><p>Symptoms can be digestive, non-digestive, subtle, or absent. These are examples, not a checklist.</p></div><div class="grid-3"><article class="mini-card"><h3>Digestive</h3><p>Diarrhea, bloating, constipation, gas, nausea, or abdominal discomfort.</p></article><article class="mini-card"><h3>Energy & growth</h3><p>Fatigue, low iron, difficulty keeping weight, or slowed growth in kids.</p></article><article class="mini-card"><h3>Other signs</h3><p>Itchy rash, bone issues, or unexplained changes in health.</p></article></div></div></section>
 
-      <section class="section reveal" id="symptoms">
-        <div class="wrap">
-          <div class="section-header">
-            <p class="label">03 · Symptoms</p>
-            <h2>It does not look the same for everyone.</h2>
-            <p>Some people get tummy problems. Others feel tired, low, or notice changes in their body in other ways. A person can have very different symptoms from someone else.</p>
-          </div>
-          <div class="grid-3">
-            <article class="mini-card"><h3>Gut problems</h3><p>Stomach pain, bloating, diarrhea, constipation, nausea, or gas.</p></article>
-            <article class="mini-card"><h3>Low energy</h3><p>Feeling tired, weak, or not able to keep weight on.</p></article>
-            <article class="mini-card"><h3>Other signs</h3><p>Skin rash, iron problems, headaches, or trouble growing as a child.</p></article>
-          </div>
-          <p class="note">These signs can also happen with other health issues, so a doctor needs to check.</p>
-        </div>
-      </section>
+      <section class="section alt reveal" id="causes"><div class="wrap"><div class="section-header"><p class="label">03 · Why it happens</p><h2>Gluten is the trigger; biology matters too.</h2><p>Celiac disease involves an immune response to gluten and genetic susceptibility. It is not contagious.</p></div><div class="two-col"><div class="info-box"><p><strong>Genes matter:</strong> certain genes are associated with celiac disease, but genes alone do not decide the outcome.</p></div><div class="info-box accent"><p><strong>Key point:</strong> a reaction to gluten is not the same as preferring a gluten-free lifestyle.</p></div></div></div></section>
 
-      <section class="section alt reveal" id="treatment">
-        <div class="wrap">
-          <div class="section-header">
-            <p class="label">04 · Cure / treatment</p>
-            <h2>There is no cure yet, but there is a clear treatment.</h2>
-            <p>The main treatment is a strict gluten-free diet. That means no wheat, barley, or rye. People often feel better once they stop eating gluten.</p>
-          </div>
-          <div class="two-col">
-            <div class="info-box">
-              <p><strong>What helps:</strong> a doctor, a dietitian, and careful food choices.</p>
-              <p>People may need help reading labels and finding safe foods. A gluten-free diet is a long-term plan, not a short fix.</p>
-            </div>
-            <div class="info-box accent">
-              <p><strong>Good news:</strong> many people improve when they follow the diet correctly.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section class="section reveal" id="diagnosis"><div class="wrap"><div class="section-header"><p class="label">04 · Diagnosis</p><h2>Diagnosis takes proper testing.</h2><p>A healthcare professional may order blood tests and sometimes an endoscopy to look at the small intestine.</p></div><div class="grid-3"><article class="mini-card"><h3>Review history</h3><p>Doctors look at symptoms, family history, and other health questions.</p></article><article class="mini-card"><h3>Blood tests</h3><p>Testing often begins with celiac-related antibodies.</p></article><article class="mini-card"><h3>Biopsy if needed</h3><p>An endoscopy can help confirm the diagnosis.</p></article></div><p class="note">Do not stop eating gluten before testing unless a clinician tells you to. Gluten-free eating before testing can make results less reliable.</p></div></section>
 
-      <section class="section reveal" id="detection">
-        <div class="wrap">
-          <div class="section-header">
-            <p class="label">05 · Detection / equipment</p>
-            <h2>Doctors use tests to check for it.</h2>
-            <p>Testing usually starts with blood tests. If needed, a doctor may suggest a small camera test called an endoscopy to look at the gut and take a tiny sample.</p>
-          </div>
-          <div class="grid-3">
-            <article class="mini-card"><h3>Step 1</h3><p>Talk about symptoms and family history.</p></article>
-            <article class="mini-card"><h3>Step 2</h3><p>Blood tests look for signs linked to celiac disease.</p></article>
-            <article class="mini-card"><h3>Step 3</h3><p>A doctor may do a gut check if the results need more detail.</p></article>
-          </div>
-          <p class="note">Important: do not start a gluten-free diet before testing unless a clinician tells you to, because it can make the results less clear.</p>
-        </div>
-      </section>
+      <section class="section alt reveal" id="treatment"><div class="wrap"><div class="section-header"><p class="label">05 · Treatment</p><h2>There isn’t a cure yet. There is treatment.</h2><p>The established treatment is a strict lifelong gluten-free diet, with support from a healthcare team.</p></div><div class="two-col"><div class="info-box"><p><strong>Food plan:</strong> avoid wheat, barley, and rye; read labels carefully.</p></div><div class="info-box accent"><p><strong>Support helps:</strong> a clinician or registered dietitian can guide a balanced, realistic approach.</p></div></div></div></section>
 
-      <section class="section alt reveal" id="creative">
-        <div class="wrap">
-          <div class="section-header">
-            <p class="label">06 · Creative presentation</p>
-            <h2>A simple way to picture it.</h2>
-            <p>Think of the small intestine like a soft, bumpy surface with tiny finger-like parts that help the body take in nutrients. In celiac disease, gluten can make the body attack that surface.</p>
-          </div>
-          <div class="creative-box">
-            <p><strong>Picture this:</strong> the gut is a busy lunch line. Gluten shows up, and the body reacts like it is under attack. That reaction can damage the lining and make it harder to absorb the nutrients the body needs.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="sources">
-        <div class="wrap">
-          <div class="section-header">
-            <p class="label">07 · Bibliography</p>
-            <h2>Sources for more reading.</h2>
-            <p>These are good places to check for clear, trusted information.</p>
-          </div>
-          <div class="source-list">
-            <a href="https://www.nhs.uk/conditions/coeliac-disease/" target="_blank" rel="noopener noreferrer">NHS · Coeliac disease</a>
-            <a href="https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease" target="_blank" rel="noopener noreferrer">NIDDK · Celiac Disease</a>
-            <a href="https://celiac.org/about-celiac-disease/what-is-celiac-disease/" target="_blank" rel="noopener noreferrer">Celiac Disease Foundation</a>
-            <a href="https://www.mayoclinic.org/diseases-conditions/celiac-disease/symptoms-causes/syc-20352220" target="_blank" rel="noopener noreferrer">Mayo Clinic · Celiac disease</a>
-          </div>
-        </div>
-      </section>
+      <section class="section reveal" id="sources"><div class="wrap"><div class="section-header"><p class="label">06 · Sources</p><h2>Sources for further reading.</h2><p>This is a student project and should not replace medical advice.</p></div><div class="source-list"><a href="https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease" target="_blank" rel="noopener noreferrer">NIDDK · Celiac Disease ↗</a><a href="https://www.nhs.uk/conditions/coeliac-disease/" target="_blank" rel="noopener noreferrer">NHS · Coeliac disease ↗</a><a href="https://celiac.org/about-celiac-disease/what-is-celiac-disease/" target="_blank" rel="noopener noreferrer">Celiac Disease Foundation ↗</a><a href="https://www.mayoclinic.org/diseases-conditions/celiac-disease/symptoms-causes/syc-20352220" target="_blank" rel="noopener noreferrer">Mayo Clinic · Celiac disease ↗</a></div></div></section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <span class="footer-brand">Celiac, Clearly · A student project by Mo. Dewan</span>
-        <p>Learn with curiosity. Lead with kindness.</p>
-        <a href="#top">Back to top</a>
-      </div>
-    </footer>
+    <footer class="site-footer"><div class="wrap footer-inner"><span class="footer-brand">Celiac, Clearly · A student project by Mo. Dewan</span><p>Learn with curiosity. Lead with kindness.</p><a href="#top">Back to top ↑</a></div></footer>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const intro = document.getElementById('intro');
+    const question = document.getElementById('question');
+    const profile = document.getElementById('profile');
+    const visitor = document.getElementById('visitor');
+    const site = document.getElementById('site');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    document.body.style.overflow = 'hidden';
+
+    function showStage(stage) {
+      [question, profile, visitor].forEach(item => {
+        if (!item) return;
+        item.hidden = true;
+        item.classList.remove('show');
+      });
+      stage.hidden = false;
+      requestAnimationFrame(() => stage.classList.add('show'));
+    }
+
+    function enterSite() {
+      if (!intro || !site) return;
+      intro.setAttribute('aria-hidden', 'true');
+      site.hidden = false;
+      requestAnimationFrame(() => site.classList.add('visible'));
+      document.body.style.overflow = '';
+    }
+
+    function revealQuestion() {
+      if (question) question.hidden = false;
+      if (prank) prank.hidden = true;
+    }
+
+    const prank = document.getElementById('prank');
+    if (prank) {
+      setTimeout(revealQuestion, reduced.matches ? 700 : 1800);
+    } else {
+      showStage(question);
+    }
+
+    document.getElementById('yes').addEventListener('click', () => showStage(profile));
+    document.getElementById('no').addEventListener('click', () => showStage(visitor));
+    document.getElementById('continue').addEventListener('click', enterSite);
+    document.getElementById('close-page').addEventListener('click', () => {
+      window.close();
+      const note = document.getElementById('close-note');
+      if (note) note.textContent = 'Your browser may not let a page close itself. Please close this tab.';
+    });
+
+    document.getElementById('photo')?.addEventListener('change', event => {
+      const file = event.target.files && event.target.files[0];
+      if (!file || !file.type.startsWith('image/')) return;
+      const image = document.createElement('img');
+      image.alt = 'Selected profile photo';
+      image.src = URL.createObjectURL(file);
+      const avatar = document.querySelector('.profile-photo img');
+      if (avatar) avatar.src = image.src;
+    });
+
+    const menuButton = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.navlinks');
+    if (menuButton && navLinks) {
+      menuButton.addEventListener('click', () => {
+        const open = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!open));
+        menuButton.textContent = open ? 'Menu' : 'Close';
+        navLinks.classList.toggle('open', !open);
+      });
+      navLinks.addEventListener('click', event => {
+        if (!event.target.closest('a')) return;
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = 'Menu';
+        navLinks.classList.remove('open');
+      });
+    }
+
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !reduced.matches) {
+      const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObserver.unobserve(entry.target);
+        }
+      }), { threshold: .08 });
+      revealEls.forEach(el => revealObserver.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('in'));
+    }
+
+    const sections = document.querySelectorAll('main section[id]');
+    const links = document.querySelectorAll('.navlinks a[href^="#"]');
+    if ('IntersectionObserver' in window && sections.length && links.length) {
+      const navObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        links.forEach(link => link.getAttribute('href') === '#' + entry.target.id ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'));
+      }), { rootMargin: '-20% 0px -65% 0px' });
+      sections.forEach(section => navObserver.observe(section));
+    }
+  </script>
 </body>
 </html>
