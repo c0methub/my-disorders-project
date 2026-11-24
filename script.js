@@ -1,31 +1,44 @@
 (() => {
-  const intro = document.querySelector('#intro');
-  const question = document.querySelector('#question');
-  const profile = document.querySelector('#profile');
-  const goodbye = document.querySelector('#visitor');
-  const site = document.querySelector('#site');
+  const welcome = document.querySelector('#welcome-screen');
+  const countdown = document.querySelector('#welcome-countdown');
+  const countdownNumber = document.querySelector('#countdown-number');
+  const question = document.querySelector('#welcome-question');
+  const note = document.querySelector('#welcome-note');
+  const yesButton = document.querySelector('#welcome-yes');
+  const noButton = document.querySelector('#welcome-no');
   const menuButton = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('#nav-links');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function showStage(nextStage) {
-    [question, profile, goodbye].forEach(stage => { if (!stage) return; stage.hidden = true; stage.classList.remove('stage-active'); });
-    if (!nextStage) return;
-    nextStage.hidden = false;
-    requestAnimationFrame(() => nextStage.classList.add('stage-active'));
+  if (welcome) {
+    document.body.classList.add('locked');
+    let seconds = 3;
+    const timer = window.setInterval(() => {
+      seconds -= 1;
+      if (countdownNumber) countdownNumber.textContent = String(Math.max(seconds, 0));
+      if (seconds <= 0) {
+        window.clearInterval(timer);
+        if (countdown) countdown.hidden = true;
+        if (question) {
+          question.hidden = false;
+          question.classList.add('question-arrived');
+          yesButton?.focus({ preventScroll: true });
+        }
+      }
+    }, 1000);
   }
 
-  function showPresentation() {
-    if (!intro || !site) return;
-    intro.setAttribute('aria-hidden', 'true');
-    site.hidden = false;
-    requestAnimationFrame(() => site.classList.add('visible'));
-    document.body.classList.remove('locked');
-  }
+  yesButton?.addEventListener('click', () => {
+    if (!welcome) return;
+    welcome.classList.add('welcome-exit');
+    document.body.classList.remove('welcome-active', 'locked');
+    window.setTimeout(() => { welcome.hidden = true; }, reducedMotion ? 0 : 650);
+  });
 
-  document.querySelector('#yes')?.addEventListener('click', () => showStage(profile));
-  document.querySelector('#no')?.addEventListener('click', () => showStage(goodbye));
-  document.querySelector('#continue')?.addEventListener('click', showPresentation);
+  noButton?.addEventListener('click', () => {
+    note.textContent = 'This page cannot close itself in every browser. You can close this tab now.';
+    window.close();
+  });
 
   if (menuButton && navLinks) {
     menuButton.addEventListener('click', () => {
@@ -58,7 +71,6 @@
   progress.innerHTML = '<span></span>';
   document.body.append(progress);
   const progressFill = progress.firstElementChild;
-
   function updateProgress() {
     const total = document.documentElement.scrollHeight - window.innerHeight;
     progressFill.style.transform = `scaleX(${total > 0 ? Math.min(1, window.scrollY / total) : 0})`;

@@ -13,8 +13,35 @@
   <link rel="stylesheet" href="enhancements.css">
   <link rel="stylesheet" href="content-upgrade.css">
 </head>
-<body>
+<body class="welcome-active">
   <a class="skip-link" href="#main">Skip to the presentation</a>
+
+  <section class="welcome-screen" id="welcome-screen" aria-label="Welcome" aria-live="polite">
+    <div class="welcome-orbit welcome-orbit-one" aria-hidden="true"></div>
+    <div class="welcome-orbit welcome-orbit-two" aria-hidden="true"></div>
+    <div class="welcome-sparkles" aria-hidden="true">✦　✧　✦</div>
+    <div class="welcome-card">
+      <div class="welcome-photo-wrap">
+        <span class="welcome-photo-glow" aria-hidden="true"></span>
+        <img class="welcome-photo" src="https://raw.githubusercontent.com/c0methub/website-assets/f328d68885cc2a0c23f4abe518119bc4aa9ac709/Screenshot_20261027_123721_Snapchat.jpg" alt="Mohammad">
+      </div>
+      <p class="welcome-kicker">A little hello before we begin</p>
+      <h1 class="welcome-title">Hi, I’m <span>Mohammad</span><i aria-hidden="true">!</i></h1>
+      <div class="welcome-countdown" id="welcome-countdown" aria-live="polite">
+        <span class="countdown-label">Ready in</span>
+        <span class="countdown-number" id="countdown-number">3</span>
+      </div>
+      <div class="welcome-question" id="welcome-question" hidden>
+        <p>Are you Ms. Halsted?</p>
+        <div class="welcome-actions">
+          <button class="welcome-button welcome-yes" id="welcome-yes" type="button">Yes, continue <span aria-hidden="true">→</span></button>
+          <button class="welcome-button welcome-no" id="welcome-no" type="button">No</button>
+        </div>
+      </div>
+      <p class="welcome-note" id="welcome-note" role="status"></p>
+    </div>
+    <span class="welcome-bottom-note" aria-hidden="true">Made with care by Mohammad</span>
+  </section>
 
   <header class="site-header" id="top">
     <div class="header-inner">
@@ -24,12 +51,7 @@
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <nav class="nav-links navlinks" id="nav-links" aria-label="Main navigation">
-        <a href="#cause">Cause</a>
-        <a href="#prevalence">Prevalence</a>
-        <a href="#symptoms">Symptoms</a>
-        <a href="#treatment">Treatment</a>
-        <a href="#detection">Detection</a>
-        <a href="#sources">Sources</a>
+        <a href="#cause">Cause</a><a href="#prevalence">Prevalence</a><a href="#symptoms">Symptoms</a><a href="#treatment">Treatment</a><a href="#detection">Detection</a><a href="#sources">Sources</a>
       </nav>
     </div>
   </header>
@@ -43,126 +65,30 @@
         <a class="button" href="#cause">Explore the guide <span aria-hidden="true">↓</span></a>
         <p class="hero-note">Created as a student project for learning and presentation.</p>
       </div>
-
       <div class="hero-visual reveal">
         <div class="sunburst" aria-hidden="true"></div>
-        <figure class="hero-photo">
-          <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Fresh ingredients and whole foods arranged on a table">
-          <figcaption class="photo-tag">Food, awareness, and health</figcaption>
-        </figure>
+        <figure class="hero-photo"><img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Fresh ingredients and whole foods arranged on a table"><figcaption class="photo-tag">Food, awareness, and health</figcaption></figure>
         <div class="floating-note"><span class="note-icon" aria-hidden="true">✦</span><span><strong>Key reminder</strong><br>Do not stop gluten before testing.</span></div>
         <span class="scribble" aria-hidden="true">learn it, without fear</span>
       </div>
     </section>
 
-    <div class="wrap important reveal">
-      <span class="important-icon" aria-hidden="true">!</span>
-      <p><strong>Important:</strong> If celiac disease is possible, keep eating gluten until a healthcare professional advises you to change your diet. Gluten withdrawal can make blood tests less reliable.</p>
-    </div>
+    <div class="wrap important reveal"><span class="important-icon" aria-hidden="true">!</span><p><strong>Important:</strong> If celiac disease is possible, keep eating gluten until a healthcare professional advises you to change your diet. Gluten withdrawal can make blood tests less reliable.</p></div>
 
-    <section class="section guide-section" id="cause">
-      <div class="guide-wrap two-column align-center">
-        <div>
-          <p class="kicker">01 · Cause</p>
-          <div class="section-intro"><h2>What causes celiac disease?</h2></div>
-          <div class="body-copy">
-            <p>Celiac disease is an <strong>autoimmune condition</strong>. When a person with celiac disease eats gluten, the immune system responds by damaging the small intestine.</p>
-            <p>Gluten is a protein found in wheat, barley, and rye. The reaction can reduce the surface area available for absorbing nutrients, even when symptoms are mild or not obvious.</p>
-          </div>
-        </div>
-        <aside class="fact-card reveal">
-          <span class="fact-icon" aria-hidden="true">⌁</span>
-          <p class="fact-label">The key difference</p>
-          <h3>It is not a wheat allergy.</h3>
-          <p>Celiac disease involves the immune system and intestinal injury. It is also different from a general gluten sensitivity.</p>
-        </aside>
-      </div>
-    </section>
+    <section class="section guide-section" id="cause"><div class="guide-wrap two-column align-center"><div><p class="kicker">01 · Cause</p><div class="section-intro"><h2>What causes celiac disease?</h2></div><div class="body-copy"><p>Celiac disease is an <strong>autoimmune condition</strong>. When a person with celiac disease eats gluten, the immune system responds by damaging the small intestine.</p><p>Gluten is a protein found in wheat, barley, and rye. The reaction can reduce the surface area available for absorbing nutrients, even when symptoms are mild or not obvious.</p></div></div><aside class="fact-card reveal"><span class="fact-icon" aria-hidden="true">⌁</span><p class="fact-label">The key difference</p><h3>It is not a wheat allergy.</h3><p>Celiac disease involves the immune system and intestinal injury. It is also different from a general gluten sensitivity.</p></aside></div></section>
 
-    <section class="section section-color guide-section" id="prevalence">
-      <div class="guide-wrap">
-        <div class="section-intro centered">
-          <p class="kicker">02 · Prevalence</p>
-          <h2>Who is more likely to have it?</h2>
-          <p>Celiac disease affects people across every age and background.</p>
-        </div>
-        <div class="life-grid">
-          <article class="life-card reveal"><span class="life-icon" aria-hidden="true">01</span><h3>Family history</h3><p>First-degree relatives of a person with celiac disease have a higher chance of developing it.</p></article>
-          <article class="life-card reveal"><span class="life-icon" aria-hidden="true">02</span><h3>Some genetic conditions</h3><p>Risk is higher in people with certain conditions, including type 1 diabetes and Down syndrome.</p></article>
-          <article class="life-card reveal"><span class="life-icon" aria-hidden="true">03</span><h3>Others can be affected</h3><p>Anyone can develop celiac disease. It may begin in childhood or later in life.</p></article>
-        </div>
-        <p class="symptom-footnote">A family history or additional risk factor does not mean a person definitely has celiac disease.</p>
-      </div>
-    </section>
+    <section class="section section-color guide-section" id="prevalence"><div class="guide-wrap"><div class="section-intro centered"><p class="kicker">02 · Prevalence</p><h2>Who is more likely to have it?</h2><p>Celiac disease affects people across every age and background.</p></div><div class="life-grid"><article class="life-card reveal"><span class="life-icon" aria-hidden="true">01</span><h3>Family history</h3><p>First-degree relatives of a person with celiac disease have a higher chance of developing it.</p></article><article class="life-card reveal"><span class="life-icon" aria-hidden="true">02</span><h3>Some genetic conditions</h3><p>Risk is higher in people with certain conditions, including type 1 diabetes and Down syndrome.</p></article><article class="life-card reveal"><span class="life-icon" aria-hidden="true">03</span><h3>Others can be affected</h3><p>Anyone can develop celiac disease. It may begin in childhood or later in life.</p></article></div><p class="symptom-footnote">A family history or additional risk factor does not mean a person definitely has celiac disease.</p></div></section>
 
-    <section class="section guide-section" id="symptoms">
-      <div class="guide-wrap">
-        <div class="section-intro">
-          <p class="kicker">03 · Symptoms</p>
-          <h2>It can look different in every person.</h2>
-          <p>Some symptoms involve digestion. Others affect energy, the skin, bones, or general well-being.</p>
-        </div>
-        <div class="symptom-grid">
-          <article class="symptom-card reveal"><span aria-hidden="true">01</span><h3>Digestive changes</h3><p>Diarrhea, stomach pain, bloating, or constipation may occur.</p></article>
-          <article class="symptom-card reveal"><span aria-hidden="true">02</span><h3>Low energy</h3><p>Fatigue or anemia can happen when nutrients are not absorbed normally.</p></article>
-          <article class="symptom-card reveal"><span aria-hidden="true">03</span><h3>Skin or bone changes</h3><p>Dermatitis herpetiformis and bone loss are possible manifestations.</p></article>
-        </div>
-        <p class="symptom-footnote">Some people have very few symptoms, while others have no obvious digestive symptoms. Testing should be guided by a healthcare professional.</p>
-      </div>
-    </section>
+    <section class="section guide-section" id="symptoms"><div class="guide-wrap"><div class="section-intro"><p class="kicker">03 · Symptoms</p><h2>It can look different in every person.</h2><p>Some symptoms involve digestion. Others affect energy, the skin, bones, or general well-being.</p></div><div class="symptom-grid"><article class="symptom-card reveal"><span aria-hidden="true">01</span><h3>Digestive changes</h3><p>Diarrhea, stomach pain, bloating, or constipation may occur.</p></article><article class="symptom-card reveal"><span aria-hidden="true">02</span><h3>Low energy</h3><p>Fatigue or anemia can happen when nutrients are not absorbed normally.</p></article><article class="symptom-card reveal"><span aria-hidden="true">03</span><h3>Skin or bone changes</h3><p>Dermatitis herpetiformis and bone loss are possible manifestations.</p></article></div><p class="symptom-footnote">Some people have very few symptoms, while others have no obvious digestive symptoms. Testing should be guided by a healthcare professional.</p></div></section>
 
-    <section class="section section-paper guide-section" id="treatment">
-      <div class="guide-wrap two-column align-center">
-        <div>
-          <p class="kicker">04 · Cure and treatment</p>
-          <div class="section-intro"><h2>There is no cure yet, but it can be managed.</h2></div>
-          <div class="body-copy"><p>The main treatment is a <strong>strict, lifelong gluten-free diet</strong>. It allows the small intestine to heal and prevents further immune damage.</p></div>
-          <div class="kind-reminder"><span aria-hidden="true">♡</span><p><strong>Be kind to the person managing it.</strong> Cross-contact with even small amounts of gluten can matter.</p></div>
-        </div>
-        <div class="grain-art reveal" aria-label="Illustrated grains that contain gluten">
-          <div class="grain grain-barley">🌾<span>Barley</span></div>
-          <div class="grain grain-wheat">🌾<span>Wheat</span></div>
-          <div class="grain grain-rye">🌾<span>Rye</span></div>
-        </div>
-      </div>
-    </section>
+    <section class="section section-paper guide-section" id="treatment"><div class="guide-wrap two-column align-center"><div><p class="kicker">04 · Cure and treatment</p><div class="section-intro"><h2>There is no cure yet, but it can be managed.</h2></div><div class="body-copy"><p>The main treatment is a <strong>strict, lifelong gluten-free diet</strong>. It allows the small intestine to heal and prevents further immune damage.</p></div><div class="kind-reminder"><span aria-hidden="true">♡</span><p><strong>Be kind to the person managing it.</strong> Cross-contact with even small amounts of gluten can matter.</p></div></div><div class="grain-art reveal" aria-label="Illustrated grains that contain gluten"><div class="grain grain-barley">🌾<span>Barley</span></div><div class="grain grain-wheat">🌾<span>Wheat</span></div><div class="grain grain-rye">🌾<span>Rye</span></div></div></div></section>
 
-    <section class="section guide-section" id="detection">
-      <div class="guide-wrap">
-        <div class="section-intro">
-          <p class="kicker">05 · Detection and equipment</p>
-          <h2>How do doctors check for it?</h2>
-          <p>Testing usually begins with blood tests. If results are positive or unclear, an endoscopic biopsy may be needed.</p>
-        </div>
-        <div class="steps">
-          <article class="step-card reveal"><span class="step-number">01</span><h3>Review history</h3><p>A clinician asks about symptoms, diet, family history, and related conditions.</p></article>
-          <article class="step-card reveal"><span class="step-number">02</span><h3>Blood testing</h3><p>Blood tests look for antibodies associated with celiac disease.</p></article>
-          <article class="step-card reveal"><span class="step-number">03</span><h3>Possible biopsy</h3><p>An endoscope lets a specialist examine the intestine and collect a tiny tissue sample.</p></article>
-        </div>
-        <p class="test-reminder reveal"><strong>Do not begin a gluten-free diet before testing.</strong> Speak with a healthcare professional and follow their instructions.</p>
-      </div>
-    </section>
+    <section class="section guide-section" id="detection"><div class="guide-wrap"><div class="section-intro"><p class="kicker">05 · Detection and equipment</p><h2>How do doctors check for it?</h2><p>Testing usually begins with blood tests. If results are positive or unclear, an endoscopic biopsy may be needed.</p></div><div class="steps"><article class="step-card reveal"><span class="step-number">01</span><h3>Review history</h3><p>A clinician asks about symptoms, diet, family history, and related conditions.</p></article><article class="step-card reveal"><span class="step-number">02</span><h3>Blood testing</h3><p>Blood tests look for antibodies associated with celiac disease.</p></article><article class="step-card reveal"><span class="step-number">03</span><h3>Possible biopsy</h3><p>An endoscope lets a specialist examine the intestine and collect a tiny tissue sample.</p></article></div><p class="test-reminder reveal"><strong>Do not begin a gluten-free diet before testing.</strong> Speak with a healthcare professional and follow their instructions.</p></div></section>
 
-    <section class="sources section guide-section" id="sources">
-      <div class="guide-wrap">
-        <div class="section-intro"><p class="kicker">06 · Bibliography</p><h2>Where I checked the facts.</h2></div>
-        <div class="source-grid">
-          <a class="reveal" href="https://www.celiac.org/about-celiac-disease/" target="_blank" rel="noreferrer"><strong>Beyond Celiac</strong><span>Overview and patient resources</span></a>
-          <a class="reveal" href="https://celiac.org/gluten-free-living/what-is-celiac-disease/" target="_blank" rel="noreferrer"><strong>Beyond Celiac Foundation</strong><span>Celiac disease basics</span></a>
-          <a class="reveal" href="https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease" target="_blank" rel="noreferrer"><strong>NIDDK</strong><span>Symptoms, testing, and treatment</span></a>
-          <a class="reveal" href="https://www.mayoclinic.org/diseases-conditions/celiac-disease/symptoms-causes/syc-20352220" target="_blank" rel="noreferrer"><strong>Mayo Clinic</strong><span>Clinical overview</span></a>
-          <a class="reveal" href="https://medlineplus.gov/celiacdisease.html" target="_blank" rel="noreferrer"><strong>MedlinePlus</strong><span>Trusted public health information</span></a>
-          <a class="reveal" href="https://www.worldgastroenterology.org/guidelines/celiac-disease" target="_blank" rel="noreferrer"><strong>World Gastroenterology Organisation</strong><span>Professional guidance</span></a>
-        </div>
-        <p class="medical-note">This guide is for education. It cannot diagnose celiac disease or replace advice from a qualified clinician.</p>
-      </div>
-    </section>
+    <section class="sources section guide-section" id="sources"><div class="guide-wrap"><div class="section-intro"><p class="kicker">06 · Bibliography</p><h2>Where I checked the facts.</h2></div><div class="source-grid"><a class="reveal" href="https://www.celiac.org/about-celiac-disease/" target="_blank" rel="noreferrer"><strong>Beyond Celiac</strong><span>Overview and patient resources</span></a><a class="reveal" href="https://celiac.org/gluten-free-living/what-is-celiac-disease/" target="_blank" rel="noreferrer"><strong>Beyond Celiac Foundation</strong><span>Celiac disease basics</span></a><a class="reveal" href="https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease" target="_blank" rel="noreferrer"><strong>NIDDK</strong><span>Symptoms, testing, and treatment</span></a><a class="reveal" href="https://www.mayoclinic.org/diseases-conditions/celiac-disease/symptoms-causes/syc-20352220" target="_blank" rel="noreferrer"><strong>Mayo Clinic</strong><span>Clinical overview</span></a><a class="reveal" href="https://medlineplus.gov/celiacdisease.html" target="_blank" rel="noreferrer"><strong>MedlinePlus</strong><span>Trusted public health information</span></a><a class="reveal" href="https://www.worldgastroenterology.org/guidelines/celiac-disease" target="_blank" rel="noreferrer"><strong>World Gastroenterology Organisation</strong><span>Professional guidance</span></a></div><p class="medical-note">This guide is for education. It cannot diagnose celiac disease or replace advice from a qualified clinician.</p></div></section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner"><a class="brand footer-brand" href="#top"><span class="brand-mark">c.</span><span>Celiac, Clearly<small>Mo. Dewan · Student project</small></span></a><p>Made for learning and clear understanding.</p><a class="back-top" href="#top">Back to top ↑</a></div>
-  </footer>
-
+  <footer class="site-footer"><div class="wrap footer-inner"><a class="brand footer-brand" href="#top"><span class="brand-mark">c.</span><span>Celiac, Clearly<small>Mo. Dewan · Student project</small></span></a><p>Made for learning and clear understanding.</p><a class="back-top" href="#top">Back to top ↑</a></div></footer>
   <script src="script.js"></script>
 </body>
 </html>
