@@ -20,4 +20,28 @@ h1 em{background:linear-gradient(110deg,#245846 10%,#6d9a72 52%,#c76e4d 95%);-we
 @keyframes hero-glow{from{transform:translate3d(-1%,0,0) scale(.96)}to{transform:translate3d(1%,1%,0) scale(1.04)}}
 @keyframes photo-hover{0%,100%{translate:0 0}50%{translate:0 -7px}}
 @keyframes note-float{0%,100%{translate:0 0}50%{translate:0 -6px}}
-@media(prefers-reduced-motion:reduce){.hero::before,.hero-photo,.floating-note{animation:none!important}.reveal{opacity:1;transform:none;transition:none}.symptom-card,.step-card,.life-card,.source-grid a{transition:none}}
+
+/* New visuals throughout the guide: an estimate chart, food photography, and a testing flow. */
+.guide-visual{margin:2.5rem 0 0;padding:clamp(1.25rem,3vw,2rem);border:1px solid #dfe8dc;border-radius:1.5rem;background:linear-gradient(135deg,#fffefa,#edf4eb);box-shadow:0 18px 45px #253d300c}
+.guide-visual figcaption{margin-top:1rem;color:var(--muted);font-size:.84rem;text-align:center}
+.prevalence-visual{max-width:680px;margin-inline:auto;text-align:center}
+.prevalence-visual h3,.testing-visual h3{margin:0 0 .45rem;font-size:1.5rem}
+.prevalence-dots{display:grid;width:min(100%,290px);grid-template-columns:repeat(10,1fr);gap:8px;margin:1.4rem auto}
+.prevalence-dots span{aspect-ratio:1;border-radius:50%;background:#c9d9c8;box-shadow:inset 0 0 0 1px #fff}
+.prevalence-dots span:first-child{background:linear-gradient(145deg,#d58b68,#bd6246);box-shadow:0 0 0 4px #f5ded2;animation:chart-pulse 2.8s ease-in-out infinite}
+.prevalence-caption{max-width:52ch;margin:0 auto;color:var(--muted);font-size:.88rem}
+.food-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2rem}
+.food-photo-card{overflow:hidden;margin:0;border:1px solid #e6e5dc;border-radius:1.1rem;background:#fffefa;box-shadow:0 10px 28px #253d3010;transition:transform .35s,box-shadow .35s}
+.food-photo-card:hover{transform:translateY(-7px) rotate(-.5deg);box-shadow:0 20px 36px #253d3020}
+.food-photo-card img{display:block;width:100%;height:190px;object-fit:cover;transition:transform .65s}
+.food-photo-card:hover img{transform:scale(1.06)}
+.food-photo-card figcaption{padding:.75rem .9rem;color:var(--muted);font-size:.8rem;text-align:left}
+.testing-visual{background:linear-gradient(120deg,#f7f1e7,#fffefa 55%,#e9f0e7)}
+.testing-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.25rem 0 0;padding:0;list-style:none;counter-reset:testing}
+.testing-steps li{position:relative;min-height:130px;padding:1.1rem;border:1px solid #dfe8dc;border-radius:1rem;background:#ffffffc9;counter-increment:testing}
+.testing-steps li::before{display:grid;width:34px;height:34px;place-items:center;margin-bottom:.75rem;border-radius:50%;background:linear-gradient(145deg,#245846,#6d9a72);color:#fff;font-weight:800;content:counter(testing);box-shadow:0 5px 14px #24584630}
+.testing-steps strong{display:block;margin-bottom:.25rem;color:var(--ink)}
+.testing-steps span{color:var(--muted);font-size:.82rem}
+@keyframes chart-pulse{0%,100%{box-shadow:0 0 0 3px #f5ded2}50%{box-shadow:0 0 0 8px #f5ded255}}
+@media(max-width:620px){.food-photo-grid{grid-template-columns:1fr 1fr}.food-photo-card:last-child{grid-column:1/-1}.food-photo-card img{height:160px}.testing-steps{grid-template-columns:1fr}.testing-steps li{min-height:0}}
+@media(prefers-reduced-motion:reduce){.hero::before,.hero-photo,.floating-note,.prevalence-dots span:first-child{animation:none!important}.reveal{opacity:1;transform:none;transition:none}.symptom-card,.step-card,.life-card,.source-grid a,.food-photo-card,.food-photo-card img{transition:none}}
