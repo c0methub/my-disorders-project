@@ -1,3 +1,23 @@
-/* Editorial spacing and responsive refinements. */
-.guide-section{position:relative;scroll-margin-top:76px}.guide-wrap{width:min(1080px,calc(100% - 2.5rem));margin-inline:auto}.guide-wrap.two-column{width:min(1120px,calc(100% - 3rem))}.guide-heading h2{letter-spacing:-.045em}.guide-lead{max-width:760px}.guide-columns{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.2rem,4vw,3.5rem)}.guide-copy p{color:#586e64}.guide-card{border-radius:20px}.guide-pills{display:flex;flex-wrap:wrap;gap:.55rem}.guide-source{transition:transform .2s,border-color .2s}.guide-source:hover{transform:translateY(-3px)}
+/* Editorial spacing, gradients, and accessible motion refinements. */
+.guide-section{position:relative;scroll-margin-top:76px}.guide-wrap{width:min(1080px,calc(100% - 2.5rem));margin-inline:auto}.guide-wrap.two-column{width:min(1120px,calc(100% - 3rem))}
 @media(max-width:720px){.guide-wrap,.guide-wrap.two-column{width:calc(100% - 2rem)}}
+
+/* Soft color blooms keep the original calm, editorial palette while adding depth. */
+.hero{position:relative;isolation:isolate}
+.hero::before{position:absolute;z-index:-1;inset:5% -5%;border-radius:48%;background:radial-gradient(ellipse at 18% 30%,#f5ded27d,transparent 42%),radial-gradient(ellipse at 78% 60%,#dcebdcaa,transparent 48%);content:"";animation:hero-glow 12s ease-in-out infinite alternate}
+h1 em{background:linear-gradient(110deg,#245846 10%,#6d9a72 52%,#c76e4d 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.button{background:linear-gradient(115deg,#245846,#39785a 55%,#c76e4d);background-size:180% 180%;transition:transform .25s,box-shadow .25s,background-position .5s}
+.button:hover{background-position:100% 50%}
+.hero-photo{animation:photo-hover 6s ease-in-out infinite}
+.floating-note{animation:note-float 5s ease-in-out infinite}
+.important{background:linear-gradient(115deg,#fff4eb,#fffaf4 68%,#f9e9dc)}
+.fact-card,.symptom-card,.step-card,.life-card,.source-grid a{transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,border-color .3s}
+.symptom-card:hover,.step-card:hover,.life-card:hover,.source-grid a:hover{border-color:#d5e4d2}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.symptom-card:nth-child(2),.step-card:nth-child(2),.life-card:nth-child(2){transition-delay:80ms}
+.symptom-card:nth-child(3),.step-card:nth-child(3),.life-card:nth-child(3){transition-delay:160ms}
+@keyframes hero-glow{from{transform:translate3d(-1%,0,0) scale(.96)}to{transform:translate3d(1%,1%,0) scale(1.04)}}
+@keyframes photo-hover{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@keyframes note-float{0%,100%{translate:0 0}50%{translate:0 -6px}}
+@media(prefers-reduced-motion:reduce){.hero::before,.hero-photo,.floating-note{animation:none!important}.reveal{opacity:1;transform:none;transition:none}.symptom-card,.step-card,.life-card,.source-grid a{transition:none}}
