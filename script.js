@@ -10,6 +10,13 @@
   const navLinks = document.querySelector('#nav-links');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  function continueToSite() {
+    if (!welcome || welcome.hidden) return;
+    welcome.classList.add('welcome-exit');
+    document.body.classList.remove('welcome-active', 'locked');
+    window.setTimeout(() => { welcome.hidden = true; }, reducedMotion ? 0 : 650);
+  }
+
   if (welcome) {
     document.body.classList.add('locked');
     let seconds = 3;
@@ -19,24 +26,15 @@
       if (seconds <= 0) {
         window.clearInterval(timer);
         if (countdown) countdown.hidden = true;
-        if (question) {
-          question.hidden = false;
-          question.classList.add('question-arrived');
-          yesButton?.focus({ preventScroll: true });
-        }
+        // Automatically reveal the guide as soon as the three-second countdown ends.
+        continueToSite();
       }
     }, 1000);
   }
 
-  yesButton?.addEventListener('click', () => {
-    if (!welcome) return;
-    welcome.classList.add('welcome-exit');
-    document.body.classList.remove('welcome-active', 'locked');
-    window.setTimeout(() => { welcome.hidden = true; }, reducedMotion ? 0 : 650);
-  });
-
+  yesButton?.addEventListener('click', continueToSite);
   noButton?.addEventListener('click', () => {
-    note.textContent = 'This page cannot close itself in every browser. You can close this tab now.';
+    if (note) note.textContent = 'This page cannot close itself in every browser. You can close this tab now.';
     window.close();
   });
 
@@ -55,13 +53,13 @@
     });
   }
 
-  // Add small, accessible learning visuals to the existing guide sections.
+  // Add accessible learning visuals to the existing guide sections.
   const prevalenceSection = document.querySelector('#prevalence .guide-wrap');
   if (prevalenceSection) {
     const chart = document.createElement('figure');
     chart.className = 'guide-visual prevalence-visual reveal';
     chart.setAttribute('aria-labelledby', 'prevalence-chart-title prevalence-chart-caption');
-    chart.innerHTML = '<h3 id="prevalence-chart-title">A one-in-100 estimate</h3><div class="prevalence-dots" role="img" aria-label="One highlighted dot among 100 dots, representing an approximate 1 percent prevalence estimate"></div><p class="prevalence-caption" id="prevalence-chart-caption">About 1 in 100 people worldwide are estimated to have celiac disease. Estimates vary by population, and some people may not yet be diagnosed.</p>';
+    chart.innerHTML = '<h3 id="prevalence-chart-title">A one-in-100 estimate</h3><div class="prevalence-dots" role="img" aria-label="One highlighted dot among 100 dots, representing an approximate one-percent prevalence"></div><figcaption class="prevalence-caption" id="prevalence-chart-caption">This is a simple visual estimate; rates can vary between populations.</figcaption>';
     const dots = chart.querySelector('.prevalence-dots');
     for (let i = 0; i < 100; i += 1) dots.append(document.createElement('span'));
     prevalenceSection.append(chart);
@@ -73,9 +71,9 @@
     gallery.className = 'food-photo-grid reveal';
     gallery.setAttribute('aria-label', 'Food photographs for the gluten-free diet section');
     gallery.innerHTML = `
-      <figure class="food-photo-card"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A colorful bowl of vegetables and grains" loading="lazy"><figcaption>Build meals around naturally gluten-free ingredients.</figcaption></figure>
-      <figure class="food-photo-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Freshly baked bread on a table" loading="lazy"><figcaption>Check labels carefully on packaged foods, including bread.</figcaption></figure>
-      <figure class="food-photo-card"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A fresh salad prepared with vegetables" loading="lazy"><figcaption>Preventing cross-contact matters when preparing food.</figcaption></figure>`;
+      <figure class="food-photo-card"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A colorful bowl of vegetables and grains" loading="lazy"><figcaption>Build meals around naturally gluten-free foods.</figcaption></figure>
+      <figure class="food-photo-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Freshly baked bread on a table" loading="lazy"><figcaption>Check labels and choose certified gluten-free products.</figcaption></figure>
+      <figure class="food-photo-card"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="A fresh salad prepared with vegetables" loading="lazy"><figcaption>Prevent cross-contact when preparing food.</figcaption></figure>`;
     treatmentSection.append(gallery);
   }
 
@@ -84,14 +82,18 @@
     const flow = document.createElement('figure');
     flow.className = 'guide-visual testing-visual reveal';
     flow.setAttribute('aria-labelledby', 'testing-visual-title');
-    flow.innerHTML = '<h3 id="testing-visual-title">A simple testing pathway</h3><ol class="testing-steps"><li><strong>Keep eating gluten</strong><span>Stopping beforehand may affect test results. Ask a healthcare professional for advice.</span></li><li><strong>Talk with a clinician</strong><span>They can decide whether blood tests are appropriate.</span></li><li><strong>Review next steps</strong><span>A specialist may recommend further testing based on your results.</span></li></ol><figcaption>Testing decisions should be made with a qualified healthcare professional.</figcaption>';
+    flow.innerHTML = '<h3 id="testing-visual-title">A simple testing pathway</h3><ol class="testing-steps"><li><strong>Keep eating gluten</strong><span>Stopping beforehand may affect test results. Ask a clinician before changing your diet.</span></li><li><strong>Blood tests</strong><span>A clinician may order antibody tests as a first step.</span></li><li><strong>Follow-up care</strong><span>Further testing and diagnosis are guided by a healthcare professional.</span></li></ol>';
     detectionSection.append(flow);
   }
 
   const revealItems = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reducedMotion) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => { if (!entry.isIntersecting) return; entry.target.classList.add('in'); observer.unobserve(entry.target); });
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      });
     }, { threshold: 0.1 });
     revealItems.forEach(item => revealObserver.observe(item));
   } else {
